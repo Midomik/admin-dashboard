@@ -5,38 +5,42 @@
 @tailwind utilities;
 
 :root {
-  --white: #f9f9f9;
-  --gray-68: #686868;
-  --gray-e3: rgba(227, 227, 227, 0.3);
-  --grey-26: #262626;
-  --grey-1f: #1f1f1f;
-  --dark: #141414;
-  --blue: #4f92f7;
-  --green: #30b94d;
+  --background: #e7f1ed;
+  --background-2: #f7f8fa;
+  --background-3: #fff;
+  --dark: #1d1e21;
 }
 
 @font-face {
-  font-family: 'Gilroy';
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('../../shared/assets/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  src: url('../../shared/assets/fonts/Gilroy-Medium.woff2') format('truetype');
+  src: url('../../shared/assets/fonts/Inter-Medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Gilroy';
-  font-weight: 700;
+  font-family: 'Inter';
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
-  src: url('../../shared/assets/fonts/Gilroy-Bold.woff2') format('truetype');
+  src: url('../../shared/assets/fonts/Inter-SemiBold.ttf') format('truetype');
 }
 
 body {
-  color: var(--white);
-  font-family: 'Gilroy';
-  font-size: 14px;
+  color: var(--dark);
+  font-family: 'Inter';
+  font-size: 12px;
   font-weight: 500;
-  background-color: var(--dark);
+  background-color: var(--background-2);
   padding: 32px;
 }
 
