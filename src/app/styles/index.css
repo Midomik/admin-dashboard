@@ -41,7 +41,7 @@ body {
   font-size: 12px;
   font-weight: 500;
   background-color: var(--background-2);
-  padding: 32px;
+  /* padding: 32px; */
 }
 
 h1,
