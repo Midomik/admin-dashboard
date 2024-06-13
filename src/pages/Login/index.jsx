@@ -8,6 +8,9 @@ import elements from '../../shared/assets/images/png/elements.png';
 import elements_2x from '../../shared/assets/images/png/elements@2x.png';
 import elements_webp from '../../shared/assets/images/webp/elements.webp';
 import elements_2x_webp from '../../shared/assets/images/webp/elements@2x.webp';
+import { Form } from '../../shared/ui/Form';
+import { Input } from '../../shared/ui/Input';
+import { EyeOffIcon } from '../../shared/assets/icons/EyeOffIcon';
 
 export const Login = () => {
   return (
@@ -37,7 +40,16 @@ export const Login = () => {
           </p>
         </div>
 
-        <div>forma</div>
+        <div>
+          <Form submit={(value) => console.log(value)}>
+            <Input name="email" placeholder="Email address" />
+            <Input
+              name="password"
+              placeholder="Password"
+              eyeIcon={<EyeOffIcon />}
+            />
+          </Form>
+        </div>
       </div>
 
       <picture className="absolute bottom-0 right-0">
