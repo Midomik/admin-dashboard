@@ -42,13 +42,10 @@ export const Input = ({
       {isRegister && (
         <div>
           <div
-            className={`text-[rgba(29, 30, 33, 0.4)] relative box-border flex w-full  items-center gap-[10px] rounded-[12px] bg-white text-base hover:border hover:border-[#f9f9f91a] mobile-sm:h-[44px] tablet:h-[50px] ${getInputClasses(name)}`}
+            className={` relative  flex  h-[44px]  w-full items-center gap-[10px] rounded-[60px] text-base text-[#1d1e2166]  hover:border ${getInputClasses(name)}`}
           >
-            {/* <span className="text-gray-68 ml-[14px] flex h-full flex-shrink-0 flex-grow items-center mobile-sm:text-[12px] tablet:text-[14px]">
-              {title}
-            </span> */}
             <input
-              className=" placeholder:text-[rgba(29, 30, 33, 0.4)] h-full w-full rounded-[12px] border-none bg-transparent focus:border-none focus:border-white focus:outline-none mobile-sm:text-[12px] mobile-sm:placeholder:text-[12px] tablet:text-[14px] tablet:placeholder:text-[14px]"
+              className=" h-full w-full rounded-[60px] border border-[#1d1e211a] bg-white pl-[18px] text-[12px]  text-dark placeholder:text-[12px] placeholder:text-[#1d1e2166] focus:border-green-accent focus:outline-none "
               type={type}
               autoComplete={name}
               {...register(name)}
@@ -63,15 +60,6 @@ export const Input = ({
               >
                 {eyeIcon}
               </div>
-
-              {/* {getInputClasses(name) ===
-                'border border-[#e90516] hover:border-[#e90516]' && (
-                <ErrorIcon />
-              )}
-              {getInputClasses(name) ===
-                'border border-[#30b94d] hover:border-[#30b94d]' && (
-                <SuccIcon />
-              )} */}
             </div>
           </div>
           {errors[name] && (

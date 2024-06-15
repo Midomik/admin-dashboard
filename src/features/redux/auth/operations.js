@@ -9,31 +9,12 @@ export const cleanAuthToken = () => {
   instance.defaults.headers.common.Authorization = '';
 };
 
-export const registerThunk = createAsyncThunk(
-  'auth/register',
-  async (formData, thunkAPI) => {
-    try {
-      const { data } = await instance.post(`/users/signup`, formData);
-      setToken(data.token);
-
-      return data;
-    } catch (error) {
-      error.response.status === 409
-        ? Notify.failure(`Error! Account is already exist!`, {
-            timeout: 3000,
-          })
-        : null;
-
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
 export const loginThunk = createAsyncThunk(
   'auth/login',
   async (data, thunkAPI) => {
     try {
-      const res = await instance.post(`/users/signin`, data);
+      const res = await instance.post(`/user/login`, data);
+      console.log(res);
 
       return res.data;
     } catch (error) {

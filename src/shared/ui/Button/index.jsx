@@ -4,28 +4,23 @@ import { cn } from '../../lib/cn';
 import { cva } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'border-[rgba(249, 249, 249, 0.2)] rounded-[30px] font-[700]',
+  ' rounded-[60px] font-[500] text-[14px] py-[13px] flex items-center justify-center',
   {
     variants: {
       size: {
-        small:
-          ' border border-[#f9f9f933] tablet:px-[28px] tablet:py-[12px] mobile-sm:px-[20px] mobile-sm:py-[10px] leading-[112%] mobile-sm:text-[14px] tablet:text-[16px]',
-        large:
-          'tablet:px-[54px] tablet:py-[16px] mobile-sm:px-[29px] mobile-sm:py-[12px] leading-[100%] text-[20px]',
+        green: '  leading-[112%] ',
+        white: '   leading-[100%] ',
       },
     },
     defaultVariants: {
-      variant: 'small',
+      variant: 'green',
     },
   }
 );
 
-export const Button = ({ className, children, size = 'small', ...rest }) => {
+export const Button = ({ className, children, size = 'green', ...rest }) => {
   return (
-    <button
-      className={cn(buttonVariants({ size, className }))}
-      {...rest}
-    >
+    <button className={cn(buttonVariants({ size, className }))} {...rest}>
       {children}
     </button>
   );

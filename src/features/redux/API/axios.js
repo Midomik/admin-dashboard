@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: 'https://readjourney.b.goit.study/api',
+  baseURL: 'https://admin-dashboard-api-ipk5.onrender.com/api',
 });
