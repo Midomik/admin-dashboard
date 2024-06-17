@@ -11,8 +11,8 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { booksReducer } from './books/reducer';
 import { authReducer } from './auth/reducer';
+import { dashboardReducer } from './dashboard/reducer';
 
 const authConfig = {
   key: 'auth',
@@ -23,7 +23,7 @@ const authConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authConfig, authReducer),
-    library: booksReducer,
+    library: dashboardReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
