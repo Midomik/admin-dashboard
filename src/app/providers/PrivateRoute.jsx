@@ -4,6 +4,8 @@ import { Navigate } from 'react-router-dom';
 
 export const PrivateRoute = ({ component, redirect = '/login' }) => {
   const { token } = useSelector((state) => state.auth);
+  console.log(token);
+
   return token ? component : <Navigate to={redirect} />;
 };
 PrivateRoute.propTypes = {

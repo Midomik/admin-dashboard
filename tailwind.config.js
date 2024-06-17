@@ -20,6 +20,8 @@ export default {
       colors: {
         'white-background-3': '#fff',
         dark: '#1d1e21',
+        'dark-0.1': 'rgba(29, 30, 33, 0.1)',
+        'dark-0.4': 'rgba(29, 30, 33, 0.4)',
         purple: '#8059e4',
         'orange-background-2': '#f79042',
         blue: '#70a6e8',

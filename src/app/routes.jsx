@@ -10,12 +10,17 @@ import {
 } from '../pages';
 import { PrivateRoute } from '../app/providers/PrivateRoute';
 import { PublicRoute } from '../app/providers/PublicRoute';
+import { AllOrders } from '../pages/AllOrders';
 
 export const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<PrivateRoute component={<Dashboard />} />} />
+        <Route
+          path="orders"
+          element={<PrivateRoute component={<AllOrders />} />}
+        />
         <Route
           path="customers"
           element={<PrivateRoute component={<AllCustomers />} />}
@@ -32,7 +37,7 @@ export const Router = () => {
         <Route path="*" element={<NotFound />} />
       </Route>
 
-      <Route path="login" element={<PrivateRoute component={<Login />} />} />
+      <Route path="login" element={<PublicRoute component={<Login />} />} />
     </Routes>
   );
 };

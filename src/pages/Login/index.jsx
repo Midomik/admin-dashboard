@@ -1,4 +1,4 @@
-import logo from '../../shared/assets/images/png/logo.png';
+import logo from '../../shared/assets/images/png/logo-login.png';
 import pill from '../../shared/assets/images/png/white-round-pill.png';
 import pill_2x from '../../shared/assets/images/png/white-round-pill@2x.png';
 import pill_webp from '../../shared/assets/images/webp/white-round-pill.webp';
