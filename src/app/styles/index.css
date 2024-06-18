@@ -81,6 +81,23 @@ input:-webkit-autofill {
   font-size: 14px;
 }
 
+td,
+th {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #1d1e211a;
+}
+
+th {
+  font-size: 14px;
+  line-height: 129%;
+  color: rgba(29, 30, 33, 0.4);
+}
+
+td {
+  font-size: 16px;
+  line-height: 112%;
+}
 /* .active {
   color: var(--white);
 } */

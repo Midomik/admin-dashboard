@@ -22,7 +22,7 @@ export const SharedLayout = ({ children }) => {
 
   return (
     <div className="">
-      <header className="border-b-dark-0.1 flex border border-r-0">
+      <header className="flex border border-r-0 border-b-dark-0.1">
         <img
           src={logo}
           alt="logotype"
@@ -49,7 +49,7 @@ export const SharedLayout = ({ children }) => {
       </header>
 
       <div className="flex">
-        <aside className="border-r-dark-0.1 flex h-[100vh] flex-col gap-[14px] border border-t-transparent px-[18px] py-[40px]">
+        <aside className="flex h-[100vh] flex-col gap-[14px] border border-r-dark-0.1 border-t-transparent px-[18px] py-[40px]">
           <NavLink
             to="/"
             className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
@@ -81,7 +81,8 @@ export const SharedLayout = ({ children }) => {
             {({ isActive }) => <CustomersIcon isActive={isActive} />}
           </NavLink>
         </aside>
-        <main className="px-[40px]">{children}</main>
+
+        <main className="w-full px-[40px]">{children}</main>
       </div>
     </div>
   );

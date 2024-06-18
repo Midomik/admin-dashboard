@@ -23,7 +23,7 @@ const authConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authConfig, authReducer),
-    library: dashboardReducer,
+    dashboard: dashboardReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

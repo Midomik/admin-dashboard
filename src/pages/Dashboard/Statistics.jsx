@@ -6,41 +6,49 @@ export const Statistics = ({
   countOfProduct,
   countOfSuppliers,
   countOfCustomers,
+  className,
 }) => {
   return (
-    <div className="mt-[20px] flex gap-[20px]">
+    <div className={`mt-[20px] flex gap-[20px] ${className}`}>
       <div className="w-[240px] rounded-[8px] border border-green-accent bg-white px-[14px] py-[8px]">
         <div className="mb-[28px] flex gap-[8px]">
           <StackOfCoinsIcon />
           <p>All products</p>
         </div>
 
-        <h3></h3>
+        <h3 className="text-[24px] font-[600] leading-[133%]">
+          {countOfProduct}
+        </h3>
       </div>
 
-      <div className="border-dark-0.1 w-[240px] rounded-[8px] border bg-white px-[14px] py-[8px]">
+      <div className="w-[240px] rounded-[8px] border border-dark-0.1 bg-white px-[14px] py-[8px]">
         <div className="mb-[28px] flex gap-[8px]">
           <PeopleIcon />
           <p>All suppliers</p>
         </div>
 
-        <h3></h3>
+        <h3 className="text-[24px] font-[600] leading-[133%]">
+          {countOfSuppliers}
+        </h3>
       </div>
 
-      <div className=" border-dark-0.1 w-[240px] rounded-[8px] border bg-white px-[14px] py-[8px]">
+      <div className=" w-[240px] rounded-[8px] border border-dark-0.1 bg-white px-[14px] py-[8px]">
         <div className="mb-[28px] flex gap-[8px]">
           <PeopleIcon />
           <p>All customers</p>
         </div>
 
-        <h3></h3>
+        <h3 className="text-[24px] font-[600] leading-[133%]">
+          {countOfCustomers}
+        </h3>
       </div>
     </div>
   );
 };
 
 Statistics.propTypes = {
-  countOfProduct: PropTypes.string,
-  countOfSuppliers: PropTypes.string,
-  countOfCustomers: PropTypes.string,
+  countOfProduct: PropTypes.number,
+  countOfSuppliers: PropTypes.number,
+  countOfCustomers: PropTypes.number,
+  className: PropTypes.string,
 };
