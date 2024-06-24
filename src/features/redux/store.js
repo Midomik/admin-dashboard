@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/reducer';
 import { dashboardReducer } from './dashboard/reducer';
+import { orderdReducer } from './orders/reducer';
 
 const authConfig = {
   key: 'auth',
@@ -24,6 +25,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authConfig, authReducer),
     dashboard: dashboardReducer,
+    orders: orderdReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
