@@ -5,6 +5,21 @@ import React from 'react';
 import { Input } from '../Input';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import { cn } from '../../lib/cn';
+import { cva } from 'class-variance-authority';
+
+const formVariants = cva(' flex gap-[14px]', {
+  variants: {
+    variant: {
+      filter: 'flex-row',
+      default: 'flex-col',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+});
+
 export const Form = ({
   defaultValues,
   className,
@@ -13,6 +28,7 @@ export const Form = ({
   validationSchema,
   children,
   isReset = true,
+  variant = 'default',
   ...rest
 }) => {
   const {
@@ -42,13 +58,13 @@ export const Form = ({
 
   const onSubmit = (data, event) => {
     event.preventDefault();
-    
+
     submit(data);
     isReset ? reset() : null;
   };
   return (
     <form
-      className={`flex flex-col gap-[8px] ${className}`}
+      className={cn(formVariants({ variant, className }))}
       onSubmit={handleSubmit(onSubmit)}
       {...rest}
     >
@@ -70,4 +86,5 @@ Form.propTypes = {
   children: PropTypes.node.isRequired,
   validationSchema: PropTypes.any,
   isReset: PropTypes.bool,
+  variant: PropTypes.string,
 };

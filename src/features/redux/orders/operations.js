@@ -8,7 +8,7 @@ export const getOrder = createAsyncThunk(
       const res = await instance.get(`/orders`, { params: data });
       console.log(res.data);
 
-      return res.data;
+      return { data: res.data, filter: data.name };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -8,8 +8,8 @@ const buttonVariants = cva(
   {
     variants: {
       size: {
-        green: '  leading-[112%] ',
-        white: '   leading-[100%] ',
+        green: ' bg-green-accent leading-[112%] px-[30px]',
+        white: '  bg-white leading-[100%] ',
       },
     },
     defaultVariants: {

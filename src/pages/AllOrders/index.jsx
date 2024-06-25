@@ -2,26 +2,64 @@ import { useEffect } from 'react';
 import { refreshThunk } from '../../features/redux/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrder } from '../../features/redux/orders/operations';
-import { selectOrderData } from '../../features/redux/orders/selectors';
+import {
+  selectFilter,
+  selectOrderData,
+} from '../../features/redux/orders/selectors';
 import {
   Cancelled,
   Completed,
   Confirmed,
+  Delivered,
   Pending,
   Processing,
 } from '../../shared/assets/icons/OrdersStatusIcons';
+import { Form } from '../../shared/ui/Form';
+import { Input } from '../../shared/ui/Input';
+import { Button } from '../../shared/ui/Button';
+import { FilterIcon } from '../../shared/assets/icons/FilterIcon';
+import { PaginationCicrcle } from '../../shared/assets/icons/PaginationCicrcle';
+import { nanoid } from 'nanoid';
 
 export const AllOrders = () => {
   const dispatch = useDispatch();
 
   const data = useSelector(selectOrderData);
+  const filterQuery = useSelector(selectFilter);
 
   const statusIcons = {
     Completed: <Completed />,
-    Delivered: <Confirmed />,
+    Confirmed: <Confirmed />,
     Shipped: <Pending />,
     Cancelled: <Cancelled />,
     Processing: <Processing />,
+    Delivered: <Delivered />,
+  };
+
+  const paginationCircles = [];
+  for (let i = 0; i < data?.totalPages; i++) {
+    paginationCircles.push(
+      <div
+        key={nanoid()}
+        onClick={() =>
+          dispatch(
+            getOrder({
+              name: filterQuery !== null ? filterQuery : '',
+              page: i + 1,
+              limit: 5,
+            })
+          )
+        }
+      >
+        <PaginationCicrcle isActive={data.page === i + 1} />
+      </div>
+    );
+  }
+
+  const submit = (value) => {
+    console.log(value);
+
+    dispatch(getOrder({ name: value.filter, page: 1, limit: 5 }));
   };
 
   useEffect(() => {
@@ -29,12 +67,26 @@ export const AllOrders = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getOrder({ page: 2, limit: 5 }));
+    dispatch(getOrder({ page: 1, limit: 5, name: null }));
   }, [dispatch]);
 
   return (
     <div>
-      <input className="h-[40px] border border-dark" type="text" />
+      <div className="mt-[75px] flex items-center justify-between">
+        <Form variant="filter" submit={submit} isReset={false}>
+          <Input name="filter" placeholder="Product Name" />
+          <Button className="flex gap-[8px] leading-[129%]  text-white">
+            <FilterIcon /> Filter
+          </Button>
+        </Form>
+
+        {/* <div className="flex items-center gap-[8px] text-[14px] leading-[129%]">
+          <button className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-green-accent ">
+            <PlusIcon />
+          </button>{' '}
+          Add a new product
+        </div> */}
+      </div>
 
       <div className="mt-[20px] w-full">
         <div className="rounded-t-[8px] bg-green-background p-[20px] text-[18px] font-[600] leading-[133%]">
@@ -42,7 +94,9 @@ export const AllOrders = () => {
         </div>
 
         <div className="rounded-b-[8px] bg-white p-[20px]  pb-0 pt-0">
-          <table className="h-[454px] w-full">
+          <table
+            className={`${data?.orders.length < 5 ? '' : 'h-[454px]'} w-full}`}
+          >
             <thead>
               <tr>
                 <th className="border-l-0 border-t-0 bg-white pl-0">
@@ -66,7 +120,7 @@ export const AllOrders = () => {
                       <div className="flex items-center gap-[8px]">
                         <img
                           src={item.photo}
-                          className="w-[36px]"
+                          className="h-[36px] w-[36px]"
                           alt="customer"
                         />
                         <p>{item.name}</p>
@@ -99,6 +153,12 @@ export const AllOrders = () => {
           </table>
         </div>
       </div>
+
+      {data?.page && (
+        <div className="mt-[20px] flex justify-center gap-[8px]">
+          {paginationCircles}
+        </div>
+      )}
     </div>
   );
 };

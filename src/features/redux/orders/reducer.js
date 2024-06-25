@@ -3,6 +3,7 @@ import { getOrder } from './operations.js';
 
 const initialState = {
   data: null,
+  filter: null,
 
   isLoading: false,
   error: null,
@@ -15,7 +16,8 @@ const orderSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(getOrder.fulfilled, (state, { payload }) => {
-        state.data = payload;
+        state.data = payload.data;
+        state.filter = payload.filter;
         state.isLoading = false;
         state.error = null;
       })

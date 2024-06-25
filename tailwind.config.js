@@ -41,6 +41,9 @@ export default {
         'green-3f': '#3f945f',
         'green-background': '#e7f1ed',
 
+        aqua: 'rgb(2, 251, 227)',
+        'aqua-0.1': 'rgba(2, 251, 227,0.1)',
+
         'gray-text': '#dcdddf',
         'gray-f7': '#f7f8fa',
         'gray-f9': '#f9f9f9',

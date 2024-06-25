@@ -37,3 +37,11 @@ export const Processing = () => {
     </div>
   );
 };
+
+export const Delivered = () => {
+  return (
+    <div className="bg-aqua-0.1 text-aqua max-h-[25px] rounded-[40px] px-[13.5px] py-[4px] text-center text-[14px] ">
+      Delivered
+    </div>
+  );
+};
