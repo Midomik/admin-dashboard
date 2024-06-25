@@ -99,14 +99,14 @@ export const AllOrders = () => {
           >
             <thead>
               <tr>
-                <th className="border-l-0 border-t-0 bg-white pl-0">
+                <th className="w-1/5 border-l-0 border-t-0 bg-white pl-0">
                   User Info
                 </th>
-                <th className="border-t-0 bg-white">Address</th>
-                <th className="border-t-0 bg-white">Products</th>
-                <th className="border-t-0 bg-white">Order date</th>
-                <th className="border-t-0 bg-white">Price</th>
-                <th className="border-r-0 border-t-0 bg-white">Status</th>
+                <th className="w-1/5 border-t-0 bg-white">Address</th>
+                <th className="w-1/5 border-t-0 bg-white">Products</th>
+                <th className="w-1/5 border-t-0 bg-white">Order date</th>
+                <th className="w-1/5 border-t-0 bg-white">Price</th>
+                <th className="w-1/5 border-r-0 border-t-0 bg-white">Status</th>
               </tr>
             </thead>
             <tbody>
