@@ -10,6 +10,7 @@ const buttonVariants = cva(
       size: {
         green: ' bg-green-accent leading-[112%] px-[30px]',
         white: '  bg-white leading-[100%] ',
+        gray: 'bg-dark-0.3 leading-[129%] text-dark-0.4 px-[30px]',
       },
     },
     defaultVariants: {

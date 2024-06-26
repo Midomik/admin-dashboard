@@ -1,0 +1,320 @@
+.modal_owerlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(18, 20, 23, 0.5);
+}
+
+.modal {
+  max-width: calc(320px + (600 - 320) * ((100vw - 320px) / (1440 - 320)));
+  width: 100%;
+  min-height: 400px;
+  background-color: #fff;
+  border-radius: 24px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: calc(28px + (64 - 28) * ((100vw - 320px) / (1440 - 320)));
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow-y: auto;
+}
+.modal::-webkit-scrollbar {
+  width: 12px;
+}
+
+.close_btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background-color: transparent;
+}
+.booking_title {
+  font-weight: 500;
+  font-size: calc(28px + (40 - 28) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: calc(10px + (20 - 10) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.booking_descr {
+  font-weight: 400;
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.25;
+  color: rgba(25, 26, 21, 0.5);
+  margin-bottom: calc(20px + (40 - 20) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.doctor_container {
+  display: flex;
+  gap: 14px;
+  margin-bottom: calc(20px + (40 - 20) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.avatar {
+  width: calc(36px + (44 - 36) * ((100vw - 320px) / (1440 - 320)));
+  height: calc(36px + (44 - 36) * ((100vw - 320px) / (1440 - 320)));
+  border-radius: calc(10px + (15 - 10) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.doctor_name_container {
+}
+
+.role {
+  font-weight: 500;
+  font-size: calc(10px + (12 - 10) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.33333;
+  color: #8a8a89;
+  margin-bottom: 4px;
+}
+
+.doctor_name {
+  font-weight: 500;
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.5;
+}
+
+.booking_form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(10px + (16 - 10) * ((100vw - 320px) / (1440 - 320)));
+}
+
+.name_field,
+.meeting_time_field,
+.phone_field,
+.email_field,
+.comment_field {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.25;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(30px + (52 - 30) * ((100vw - 320px) / (1440 - 320)));
+  border: 1px solid rgba(25, 26, 21, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: all 0.3s ease;
+}
+
+.name_field:hover,
+.meeting_time_field:hover,
+.phone_field:hover,
+.email_field:hover,
+.comment_field:hover {
+  background-color: rgba(25, 26, 21, 0.1);
+}
+
+.name_field::placeholder,
+.phone_field::placeholder,
+.meeting_time_field::placeholder,
+.email_field::placeholder,
+.comment_field::placeholder {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.25;
+  color: var(--black-color);
+}
+
+.phone_meeting_time_label {
+  display: flex;
+  gap: 8px;
+}
+
+.phone_label {
+  position: relative;
+  width: 100%;
+}
+
+.phone_field {
+  width: 100%;
+}
+
+.name_label {
+  position: relative;
+}
+
+.meeting_time_field {
+}
+.email_label {
+  position: relative;
+}
+
+.email_field {
+}
+
+.comment_label {
+}
+
+.comment_field {
+  height: calc(80px + (116 - 80) * ((100vw - 320px) / (1440 - 320))) !important;
+  resize: none;
+}
+
+.submit_form_btn {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  border-radius: 30px;
+  padding: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320))) 0;
+  color: var(--white-color);
+  background-color: var(--orange-color);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.submit_form_btn:hover {
+  color: rgba(25, 26, 21, 0.3);
+}
+
+.error_title {
+  position: absolute;
+  bottom: calc(-12px + (-16 - (-12)) * ((100vw - 320px) / (1440 - 320)));
+  left: 0;
+  color: red;
+  font-size: calc(10px + (14 - 10) * ((100vw - 320px) / (1440 - 320)));
+}
+
+/* ################################## */
+
+:global(.heading) {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: calc(
+    12px + (16 - 12) * ((100vw - 320px) / (1440 - 320))
+  ) !important;
+  line-height: 1.5;
+  color: #191a15;
+  margin: 16px;
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+
+:global(.css-1cwoir8-option),
+:global(.css-15e9d5p-option),
+:global(.css-oove1c-singleValue) {
+  font-size: calc(
+    12px + (16 - 12) * ((100vw - 320px) / (1440 - 320))
+  ) !important;
+}
+
+:global(.css-ru48cn-control) {
+  height: calc(30px + (52 - 30) * ((100vw - 320px) / (1440 - 320))) !important;
+  min-height: calc(
+    30px + (52 - 30) * ((100vw - 320px) / (1440 - 320))
+  ) !important;
+}
+
+:global(.css-1friywm-control) {
+  height: calc(30px + (52 - 30) * ((100vw - 320px) / (1440 - 320))) !important;
+  min-height: calc(
+    30px + (52 - 30) * ((100vw - 320px) / (1440 - 320))
+  ) !important;
+}
+
+:global(.css-1qof9ar-control) {
+  height: calc(30px + (52 - 30) * ((100vw - 320px) / (1440 - 320))) !important;
+  min-height: calc(
+    30px + (52 - 30) * ((100vw - 320px) / (1440 - 320))
+  ) !important;
+}
+
+:global(.css-aompdj-container) {
+  width: 100% !important;
+}
+/* ################################## */
+
+@media screen and (max-width: 601px) {
+  .phone_meeting_time_label {
+    flex-wrap: wrap;
+  }
+  .phone_field {
+    width: 100%;
+  }
+  :global(.css-aompdj-container) {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modal {
+    max-width: 600px;
+    padding: 64px;
+  }
+  .booking_title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .booking_descr {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  .doctor_container {
+    margin-bottom: 40px;
+  }
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+  }
+  .role {
+    font-size: 12px;
+  }
+  .doctor_name {
+    font-size: 16px;
+  }
+  .booking_form {
+    gap: 16px;
+  }
+  .name_field,
+  .meeting_time_field,
+  .phone_field,
+  .email_field,
+  .comment_field {
+    font-size: 16px;
+    height: 52px;
+  }
+  .name_field::placeholder,
+  .phone_field::placeholder,
+  .meeting_time_field::placeholder,
+  .email_field::placeholder,
+  .comment_field::placeholder {
+    font-size: 16px;
+  }
+  .comment_field {
+    height: 116px;
+  }
+  .submit_form_btn {
+    font-size: 16px;
+    padding: 16px 0;
+  }
+  :global(.heading) {
+    font-size: 16px;
+  }
+  :global(.css-oove1c-singleValue) {
+    font-size: 16px;
+  }
+  :global(.css-1cwoir8-option),
+  :global(.css-15e9d5p-option),
+  :global(.css-oove1c-singleValue) {
+    font-size: 16px;
+  }
+  :global(.css-ru48cn-control),
+  :global(.css-1friywm-control) {
+    height: 52px;
+    min-height: 52px;
+  }
+  .error_title {
+    bottom: -16px;
+    font-size: 14px;
+  }
+}

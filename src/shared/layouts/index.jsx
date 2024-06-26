@@ -7,12 +7,20 @@ import { SuppliersIcon } from '../assets/icons/SuppliersIcon';
 import { ProductsIcon } from '../assets/icons/ProductsIcon';
 import { OrdersIcon } from '../assets/icons/OrdersIcon';
 import { DashboardIcon } from '../assets/icons/DashboardIcon';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logOutThunk } from '../../features/redux/auth/operations';
+import { Modal } from '../ui/Modal';
+import {
+  selectIsOpenAddNewProductModal,
+  selectIsOpenEditProductModal,
+} from '../../features/redux/products/selectors';
 
 export const SharedLayout = ({ children }) => {
   const dispatch = useDispatch();
   const location = useLocation();
+
+  const isOpenAddNewProductModal = useSelector(selectIsOpenAddNewProductModal);
+  const isOpenEditProductModal = useSelector(selectIsOpenEditProductModal);
 
   const page =
     location.pathname === '/'
@@ -84,6 +92,8 @@ export const SharedLayout = ({ children }) => {
 
         <main className="w-full px-[40px]">{children}</main>
       </div>
+      {isOpenAddNewProductModal && <Modal variant="addProduct" />}
+      {isOpenEditProductModal && <Modal variant="editProduct" />}
     </div>
   );
 };

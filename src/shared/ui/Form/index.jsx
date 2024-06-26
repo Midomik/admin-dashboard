@@ -13,6 +13,7 @@ const formVariants = cva(' flex gap-[14px]', {
     variant: {
       filter: 'flex-row',
       default: 'flex-col',
+      wrap: 'flex-wrap',
     },
   },
   defaultVariants: {
@@ -37,6 +38,7 @@ export const Form = ({
     reset,
     unregister,
     formState: { errors, touchedFields },
+    control,
   } = useForm({
     mode: 'onBlur',
     defaultValues: defaultValues,
@@ -51,9 +53,15 @@ export const Form = ({
         errors,
         touchedFields,
         validate: validationSchema ? true : false,
+        control,
+      });
+    } else {
+      return React.cloneElement(child, {
+        control,
+        errors,
       });
     }
-    return child;
+    // return child
   });
 
   const onSubmit = (data, event) => {
@@ -69,7 +77,7 @@ export const Form = ({
       {...rest}
     >
       {label && (
-        <p className="ml-[14px] leading-[129%] mobile-sm:text-[10px] tablet:text-[14px] ">
+        <p className="mb-[40px] ml-[14px] w-full font-[600] leading-[117%] mobile-sm:text-[20pxpx] tablet:text-[24px]">
           {label}
         </p>
       )}

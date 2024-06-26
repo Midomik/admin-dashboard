@@ -15,6 +15,7 @@ export const Input = ({
   touchedFields,
   validate,
   errors,
+  className,
   ...rest
 }) => {
   if (!register) return null;
@@ -42,10 +43,10 @@ export const Input = ({
       {isRegister && (
         <div>
           <div
-            className={` relative  flex  h-[44px]  w-full items-center gap-[10px] rounded-[60px] text-base text-[#1d1e2166]  hover:border ${getInputClasses(name)}`}
+            className={` relative  flex  h-[46px]  w-full items-center gap-[10px] rounded-[60px] text-base text-[#1d1e2166]  hover:border ${getInputClasses(name)}`}
           >
             <input
-              className=" h-full w-full rounded-[60px] border border-[#1d1e211a] bg-white pl-[18px] text-[12px]  text-dark placeholder:text-[12px] placeholder:text-[#1d1e2166] focus:border-green-accent focus:outline-none "
+              className={` h-full w-full rounded-[60px] border border-[#1d1e211a] bg-white pl-[18px] text-[12px]  text-dark placeholder:text-[12px] placeholder:text-[#1d1e2166] focus:border-green-accent focus:outline-none ${className}`}
               type={type}
               autoComplete={name}
               {...register(name)}

@@ -21,6 +21,7 @@ export default {
         'white-background-3': '#fff',
         dark: '#1d1e21',
         'dark-0.1': 'rgba(29, 30, 33, 0.1)',
+        'dark-0.3': 'rgba(29, 30, 33, 0.3)',
         'dark-0.4': 'rgba(29, 30, 33, 0.4)',
 
         purple: '#8059e4',
