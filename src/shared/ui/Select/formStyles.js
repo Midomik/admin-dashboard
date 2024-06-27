@@ -22,7 +22,11 @@ export const formStyles = {
   }),
   container: (base) => ({
     ...base,
-    width: '224px',
+    // width: '224px',
+
+    // [`@media (min-width: 768px)`]: {
+    //   width: '295px',
+    // },
   }),
   control: (base) => ({
     ...base,

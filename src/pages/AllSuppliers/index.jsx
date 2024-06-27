@@ -13,8 +13,6 @@ import { Button } from '../../shared/ui/Button';
 import { FilterIcon } from '../../shared/assets/icons/FilterIcon';
 import { PaginationCicrcle } from '../../shared/assets/icons/PaginationCicrcle';
 import { nanoid } from 'nanoid';
-import { PlusIcon } from '../../shared/assets/icons/PlusIcon';
-import { PenIcon } from '../../shared/assets/icons/PenIcon';
 import {
   setIsOpenAddNewSupplierModal,
   setIsOpenEditSupplierModal,
@@ -71,28 +69,25 @@ export const AllSuppliers = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div className="mt-[75px] flex items-center justify-between">
+    <div className="overflow-x-scroll pb-[20px]">
+      <div className=" flex justify-between  mobile-sm:mt-[40px] mobile-sm:flex-col mobile-sm:items-start mobile-sm:gap-[16px] tablet:mt-[50px] tablet:flex-row tablet:items-center tablet:gap-0">
         <Form variant="filter" submit={submit} isReset={false}>
-          <Input name="filter" placeholder="Supplier Name" />
+          <Input name="filter" placeholder="User Name" />
           <Button className="flex gap-[8px] leading-[129%]  text-white">
             <FilterIcon /> Filter
           </Button>
         </Form>
 
-        <div className="flex items-center gap-[8px] text-[14px] leading-[129%]">
-          <button
-            onClick={() => dispatch(setIsOpenAddNewSupplierModal())}
-            className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-green-accent "
-          >
-            <PlusIcon />
-          </button>{' '}
+        <button
+          onClick={() => dispatch(setIsOpenAddNewSupplierModal())}
+          className=" flex h-[44px] items-center justify-center rounded-[60px] border border-[#59b17a80] bg-transparent px-[30px] py-[13px] leading-[129%] mobile-sm:text-[12px] tablet:text-[14px] "
+        >
           Add a new suppliers
-        </div>
+        </button>
       </div>
 
-      <div className="mt-[20px] w-full">
-        <div className="rounded-t-[8px] bg-green-background p-[20px] text-[18px] font-[600] leading-[133%]">
+      <div className="mt-[20px] mobile-sm:min-w-[680px] tablet:min-w-[960px] desktop:w-full">
+        <div className=" w-full rounded-t-[8px] bg-green-background font-[600] leading-[133%]  mobile-sm:p-[14px] mobile-sm:text-[16px] tablet:p-[20px] tablet:text-[18px]">
           All Suppliers
         </div>
 
@@ -152,7 +147,7 @@ export const AllSuppliers = () => {
                           onClick={() =>
                             dispatch(setIsOpenEditSupplierModal(item))
                           }
-                          className="flex h-[34px] items-center justify-center gap-[4px] rounded-[30px] border border-[#59b17a80] px-[17px] py-[10px] text-green-accent"
+                          className="flex h-[34px] cursor-default items-center justify-center gap-[4px]  rounded-[30px] border border-[#59b17a80] px-[17px] py-[10px] text-green-accent mobile-sm:text-[12px] tablet:text-[14px]"
                         >
                           <PenOnly /> Edit
                         </div>

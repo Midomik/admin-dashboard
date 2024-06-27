@@ -33,24 +33,28 @@ export const Login = () => {
   };
 
   return (
-    <div className=" relative h-[100vh] px-[100px] py-[28px]">
-      <div className="mb-[226px] flex items-center gap-[14px] text-[20px] font-[600] tracking-[-0.03em]">
+    <div className=" relative h-[100vh] py-[28px] mobile-sm:px-[20px] tablet:px-[32px] desktop:px-[100px]">
+      <div className="flex items-center gap-[14px] text-[20px] font-[600] tracking-[-0.03em] mobile-sm:mb-[148px] tablet:mb-[204px] desktop:mb-[226px]">
         <img src={logo} alt="logotype" />
         <h2>E-Pharmacy</h2>
       </div>
 
-      <div className="mb-[262px] flex items-center gap-[150px]">
+      <div className="z-20 mb-[262px] flex items-center mobile-sm:flex-col mobile-sm:items-start mobile-sm:gap-[40px] tablet:gap-[50px] desktop:flex-row desktop:gap-[150px]">
         <div className="max-w-[614px]">
-          <p className="relative text-[54px] font-[600] leading-[111%]">
+          <p className="relative font-[600] mobile-sm:text-[24px] mobile-sm:leading-[121%] tablet:text-[54px] tablet:leading-[111%]">
             Your medication,
-            <span className="absolute right-[20px] top-[-106px]">
+            <span className="absolute mobile-sm:right-[10px] mobile-sm:top-[-65px] tablet:right-[20px] tablet:top-[-106px]">
               <picture>
                 <source
                   type="image/webp"
                   srcSet={`${pill_webp} 1x, ${pill_2x_webp} 2x`}
                 />
                 <source type="image/png" srcSet={`${pill} 1x, ${pill_2x} 2x`} />
-                <img className="w-[179px]" srcSet={pill} alt={'pill'} />
+                <img
+                  className="mobile-sm:w-[95px] tablet:w-[179px]"
+                  srcSet={pill}
+                  alt={'pill'}
+                />
               </picture>
             </span>
             delivered Say goodbye to all{' '}
@@ -79,7 +83,7 @@ export const Login = () => {
         </div>
       </div>
 
-      <picture className="absolute bottom-0 right-0">
+      <picture className=" talet:right-0 absolute z-[-10] mobile-sm:bottom-[-120px] mobile-sm:right-[-40px]  tablet:bottom-0">
         <source
           type="image/webp"
           srcSet={`${elements_webp} 1x, ${elements_2x_webp} 2x`}

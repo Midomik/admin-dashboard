@@ -88,7 +88,7 @@ export const Form = ({
       {...rest}
     >
       {label && (
-        <p className="mb-[40px] ml-[14px] w-full font-[600] leading-[117%] mobile-sm:text-[20pxpx] tablet:text-[24px]">
+        <p className=" mt-[20px] w-full font-[600] leading-[117%] mobile-sm:mb-[20px] mobile-sm:text-[20px] tablet:mb-[40px] tablet:text-[24px]">
           {label}
         </p>
       )}

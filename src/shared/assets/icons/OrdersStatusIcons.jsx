@@ -1,6 +1,6 @@
 export const Completed = () => {
   return (
-    <div className="bg-green-accent-0.1 max-h-[25px] rounded-[40px]  px-[12px] py-[4px] text-center text-[14px] tracking-[-0.05em] text-green-accent ">
+    <div className="max-h-[25px] max-w-[92px] rounded-[40px] bg-green-accent-0.1  px-[12px] py-[4px] text-center tracking-[-0.05em] text-green-accent mobile-sm:text-[12px] tablet:text-[14px] ">
       Completed
     </div>
   );
@@ -8,7 +8,7 @@ export const Completed = () => {
 
 export const Confirmed = () => {
   return (
-    <div className="bg-purple-0.1 max-h-[25px] rounded-[40px]  px-[13.5px] py-[4px] text-center text-[14px] tracking-[-0.05em] text-purple ">
+    <div className="max-h-[25px] max-w-[92px] rounded-[40px] bg-purple-0.1  px-[13.5px] py-[4px] text-center tracking-[-0.05em] text-purple mobile-sm:text-[12px] tablet:text-[14px] ">
       Confirmed
     </div>
   );
@@ -16,7 +16,7 @@ export const Confirmed = () => {
 
 export const Pending = () => {
   return (
-    <div className="bg-orange-0.1 max-h-[25px] rounded-[40px]  px-[13.5px] py-[4px] text-center text-[14px] tracking-[-0.05em] text-orange-background-2 ">
+    <div className="max-h-[25px] max-w-[92px] rounded-[40px] bg-orange-0.1  px-[13.5px] py-[4px] text-center tracking-[-0.05em] text-orange-background-2 mobile-sm:text-[12px] tablet:text-[14px] ">
       Pending
     </div>
   );
@@ -24,7 +24,7 @@ export const Pending = () => {
 
 export const Cancelled = () => {
   return (
-    <div className="bg-red-accent-0.1 max-h-[25px] rounded-[40px]  px-[13.5px] py-[4px] text-center text-[14px] tracking-[-0.05em] text-red-accent ">
+    <div className="max-h-[25px] max-w-[92px] rounded-[40px] bg-red-accent-0.1  px-[13.5px] py-[4px] text-center tracking-[-0.05em] text-red-accent mobile-sm:text-[12px] tablet:text-[14px] ">
       Cancelled
     </div>
   );
@@ -32,7 +32,7 @@ export const Cancelled = () => {
 
 export const Processing = () => {
   return (
-    <div className="bg-blue-0.1 max-h-[25px]  rounded-[40px] px-[13.5px] py-[4px] text-center text-[14px] text-blue ">
+    <div className="max-h-[25px] max-w-[92px] rounded-[40px] bg-blue-0.1 px-[13.5px] py-[4px] text-center text-blue mobile-sm:text-[12px] tablet:text-[14px] ">
       Processing
     </div>
   );
@@ -40,7 +40,7 @@ export const Processing = () => {
 
 export const Delivered = () => {
   return (
-    <div className="bg-aqua-0.1 text-aqua max-h-[25px] rounded-[40px] px-[13.5px] py-[4px] text-center text-[14px] ">
+    <div className="max-h-[25px] max-w-[92px] rounded-[40px] bg-aqua-0.1 px-[13.5px] py-[4px] text-center text-aqua mobile-sm:text-[12px] tablet:text-[14px] ">
       Delivered
     </div>
   );

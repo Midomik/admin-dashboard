@@ -16,7 +16,7 @@ export const DateInput = ({ control, name, defaultValue = null, ...rest }) => {
             selected={value || defaultValue}
             onChange={(date) => onChange(format(date, 'MMMM d, yyyy'))}
             placeholderText="Delivery date"
-            className="focus:ring-blue-500 h-[44px] w-[224px] rounded-[60px] border border-dark-0.1 p-2 pl-[18px] placeholder:text-[12px] placeholder:text-dark-0.4 focus:border-transparent focus:outline-none focus:ring-2"
+            className="focus:ring-blue-500 h-[44px] rounded-[60px] border border-dark-0.1 p-2 pl-[18px] placeholder:text-[12px] placeholder:text-dark-0.4 focus:border-transparent focus:outline-none focus:ring-2 mobile-sm:w-[295px] tablet:w-[224px]"
             dateFormat="MMMM d, yyyy"
             {...rest}
           />

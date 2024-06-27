@@ -3,7 +3,7 @@ import { getStatistics } from './operations.js';
 
 const initialState = {
   data: null,
-
+  isOpenSideHeaderModal: false,
   isLoading: false,
   error: null,
 };
@@ -11,7 +11,18 @@ const initialState = {
 const dashboardSlice = createSlice({
   name: 'dashboard',
   initialState,
-  reducers: {},
+  reducers: {
+    setIsOpenSideHeaderModal: (state) => {
+      console.log(123);
+
+      document.body.classList.add('add-overflov');
+      state.isOpenSideHeaderModal = true;
+    },
+    closeHeaderModal: (state) => {
+      document.body.classList.remove('add-overflov');
+      state.isOpenSideHeaderModal = false;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(getStatistics.fulfilled, (state, { payload }) => {
@@ -29,3 +40,5 @@ const dashboardSlice = createSlice({
 });
 
 export const dashboardReducer = dashboardSlice.reducer;
+export const { setIsOpenSideHeaderModal, closeHeaderModal } =
+  dashboardSlice.actions;

@@ -55,25 +55,18 @@ export const AllCustomers = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div className="mt-[75px] flex items-center justify-between">
+    <div className="overflow-x-scroll pb-[20px]">
+      <div className="flex items-center justify-between mobile-sm:mt-[40px] tablet:mt-[50px]">
         <Form variant="filter" submit={submit} isReset={false}>
           <Input name="filter" placeholder="User Name" />
           <Button className="flex gap-[8px] leading-[129%]  text-white">
             <FilterIcon /> Filter
           </Button>
         </Form>
-
-        {/* <div className="flex items-center gap-[8px] text-[14px] leading-[129%]">
-          <button className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-green-accent ">
-            <PlusIcon />
-          </button>{' '}
-          Add a new product
-        </div> */}
       </div>
 
-      <div className="mt-[20px] w-full">
-        <div className="rounded-t-[8px] bg-green-background p-[20px] text-[18px] font-[600] leading-[133%]">
+      <div className="mt-[20px] mobile-sm:min-w-[670px] tablet:min-w-[960px] desktop:w-full">
+        <div className=" rounded-t-[8px] bg-green-background font-[600] leading-[133%]  mobile-sm:p-[14px] mobile-sm:text-[16px] tablet:p-[20px] tablet:text-[18px]">
           Customers Data
         </div>
 
@@ -102,7 +95,7 @@ export const AllCustomers = () => {
                     <td
                       className={` border-l-0 bg-white pl-0 ${isLast ? 'border-b-0' : ''}`}
                     >
-                      <div className="flex items-center gap-[8px]">
+                      <div className="flex flex-wrap items-center gap-[8px]">
                         <img
                           src={item.image}
                           className="h-[36px] w-[36px]"

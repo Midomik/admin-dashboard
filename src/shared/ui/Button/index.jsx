@@ -4,7 +4,7 @@ import { cn } from '../../lib/cn';
 import { cva } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  ' rounded-[60px] font-[500] text-[14px] py-[13px] flex items-center justify-center',
+  ' rounded-[60px] font-[500]  mobile-sm:text-[12px] tablet:text-[14px] py-[10px] h-[44px] flex items-center justify-center',
   {
     variants: {
       size: {

@@ -26,11 +26,36 @@ import {
 import { closeSupplierModals } from '../../../features/redux/suppliers/reducer';
 import { selectModalDataSuppliers } from '../../../features/redux/suppliers/selectors';
 import { editSupplierSchema } from '../Form/shemas/editSupplierSchema';
+import { cn } from '../../lib/cn';
+import { cva } from 'class-variance-authority';
+import { NavLink } from 'react-router-dom';
+import { DashboardIcon } from '../../assets/icons/DashboardIcon';
+import { OrdersIcon } from '../../assets/icons/OrdersIcon';
+import { ProductsIcon } from '../../assets/icons/ProductsIcon';
+import { SuppliersIcon } from '../../assets/icons/SuppliersIcon';
+import { CustomersIcon } from '../../assets/icons/CustomersIcon';
+import { logOutThunk } from '../../../features/redux/auth/operations';
+import { LogOutIcon } from '../../assets/icons/LogOutIcon';
+import { closeHeaderModal } from '../../../features/redux/dashboard/reducer';
 
-export const Modal = ({ className, variant }) => {
+export const Modal = ({ className, variant, modal = 'default' }) => {
   const dispatch = useDispatch();
   const modalData = useSelector(selectModalData);
   const modalDataSuppliers = useSelector(selectModalDataSuppliers);
+
+  const modalVariants = cva(' ', {
+    variants: {
+      modal: {
+        default:
+          'absolute left-[50%] top-[50%] box-border flex min-h-[400px]    w-[500px] translate-x-[-50%] translate-y-[-50%] flex-col items-center rounded-[12px] bg-white mobile-sm:p-[20px] tablet:p-[40px] mobile-sm:w-[335px] tablet:w-[540px]',
+        sideBar:
+          'absolute h-[100vh] left-[0] top-[0]  box-border w-[84px] flex-col items-center bg-gray-f7',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  });
 
   const addProductSubmit = (value) => {
     console.log(value);
@@ -61,25 +86,41 @@ export const Modal = ({ className, variant }) => {
         validationSchema={addProductSchema}
         isReset={false}
       >
-        <Input name="name" placeholder="Product Info" className="w-[224px]" />
+        <Input
+          name="name"
+          placeholder="Product Info"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
+        />
         <CustomSelect
           name="category"
           placeholder="Category"
           options={productOptions}
         />
-        <Input name="stock" placeholder="Stock" className="w-[224px]" />
-        <Input name="suppliers" placeholder="Suppliers" className="w-[224px]" />
-        <Input name="price" placeholder="Price" className="w-[224px]" />
+        <Input
+          name="stock"
+          placeholder="Stock"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
+        />
+        <Input
+          name="suppliers"
+          placeholder="Suppliers"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
+        />
+        <Input
+          name="price"
+          placeholder="Price"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
+        />
 
         <div className="mt-[40px] flex w-full gap-[8px]">
-          <Button type="submit" className="px-[52.5px]">
+          <Button type="submit" className="w-1/2 px-[52.5px]">
             Add
           </Button>
           <Button
             onClick={() => closeModal()}
             type="button"
             size="gray"
-            className="px-[43px]"
+            className="w-1/2 px-[43px]"
           >
             Cancel
           </Button>
@@ -102,7 +143,7 @@ export const Modal = ({ className, variant }) => {
           defaultValue={modalData?.name}
           name="name"
           placeholder="Product Info"
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <CustomSelect
           name="category"
@@ -117,19 +158,19 @@ export const Modal = ({ className, variant }) => {
           defaultValue={modalData?.stock}
           name="stock"
           placeholder="Stock"
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           defaultValue={modalData?.suppliers}
           name="suppliers"
           placeholder="Suppliers"
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           defaultValue={modalData?.price}
           name="price"
           placeholder="Price"
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
 
         <div className="mt-[40px] flex w-full gap-[8px]">
@@ -163,26 +204,26 @@ export const Modal = ({ className, variant }) => {
           name="name"
           placeholder="Suppliers info"
           ownWidth={true}
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           name="address"
           placeholder="Address"
           ownWidth={true}
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           name="suppliers"
           placeholder="Company"
           ownWidth={true}
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <DateInput name="date" placeholder="Delivery date" />
         <Input
           name="amount"
           placeholder="Amount"
           ownWidth={true}
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <CustomSelect
           name="status"
@@ -222,21 +263,21 @@ export const Modal = ({ className, variant }) => {
           defaultValue={modalDataSuppliers?.name}
           placeholder="Suppliers info"
           ownWidth={true}
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           name="address"
           defaultValue={modalDataSuppliers?.address}
           placeholder="Address"
           ownWidth={true}
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           name="suppliers"
           defaultValue={modalDataSuppliers?.suppliers}
           placeholder="Company"
           ownWidth={true}
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <DateInput
           name="date"
@@ -248,7 +289,7 @@ export const Modal = ({ className, variant }) => {
           defaultValue={modalDataSuppliers?.amount}
           placeholder="Amount"
           ownWidth={true}
-          className="w-[224px]"
+          className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <CustomSelect
           name="status"
@@ -277,9 +318,60 @@ export const Modal = ({ className, variant }) => {
     </>
   );
 
+  const sideBar = (
+    <div className=" items flex flex-col justify-between">
+      <div className="mt-[100px] flex flex-col items-center gap-[14px]">
+        <NavLink
+          onClick={() => closeModal()}
+          to="/"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+        >
+          {({ isActive }) => <DashboardIcon isActive={isActive} />}
+        </NavLink>
+        <NavLink
+          onClick={() => closeModal()}
+          to="/orders"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+        >
+          {({ isActive }) => <OrdersIcon isActive={isActive} />}
+        </NavLink>
+        <NavLink
+          onClick={() => closeModal()}
+          to="/products"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+        >
+          {({ isActive }) => <ProductsIcon isActive={isActive} />}
+        </NavLink>
+        <NavLink
+          onClick={() => closeModal()}
+          to="/suppliers"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+        >
+          {({ isActive }) => <SuppliersIcon isActive={isActive} />}
+        </NavLink>
+        <NavLink
+          onClick={() => closeModal()}
+          to="/customers"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+        >
+          {({ isActive }) => <CustomersIcon isActive={isActive} />}
+        </NavLink>
+      </div>
+
+      <button
+        onClick={() => dispatch(logOutThunk())}
+        className=" absolute bottom-[20px] left-[25%] flex h-[44px] w-[44px] items-center justify-center rounded-full bg-green-accent"
+      >
+        <LogOutIcon />
+      </button>
+    </div>
+  );
+
   const closeModal = () => {
     dispatch(closeModals());
     dispatch(closeSupplierModals());
+    dispatch(closeHeaderModal());
+
     document.body.classList.remove('add-overflov');
   };
 
@@ -307,9 +399,7 @@ export const Modal = ({ className, variant }) => {
       onClick={closeFromOverlay}
       className="fixed left-0 top-0 z-[50] h-[100vh] w-[100vw] bg-[#14141499]"
     >
-      <div
-        className={`absolute left-[50%] top-[50%] box-border flex min-h-[400px]    w-[500px] translate-x-[-50%] translate-y-[-50%] flex-col items-center overflow-y-auto rounded-[12px] bg-white p-[40px] mobile-sm:w-[335px] tablet:w-[540px] ${className}`}
-      >
+      <div className={cn(modalVariants({ modal, className }))}>
         <button
           onClick={closeModal}
           className="absolute right-[16px] top-[16px] border-none bg-transparent"
@@ -321,6 +411,7 @@ export const Modal = ({ className, variant }) => {
         {variant === 'editProduct' && editProductVariant}
         {variant === 'addSupplier' && addSupplierVariant}
         {variant === 'editSupplier' && editSupplierVariant}
+        {variant === 'sideBar' && sideBar}
       </div>
     </div>
   );
@@ -329,4 +420,5 @@ export const Modal = ({ className, variant }) => {
 Modal.propTypes = {
   className: PropTypes.string,
   variant: PropTypes.string,
+  modal: PropTypes.string,
 };

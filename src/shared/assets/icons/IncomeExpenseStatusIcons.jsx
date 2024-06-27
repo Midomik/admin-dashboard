@@ -1,6 +1,6 @@
 export const IncimeIcon = () => {
   return (
-    <div className="bg-green-accent-0.1 max-h-[25px]  rounded-[40px] px-[13.5px] py-[4px] text-center text-[14px] text-green-accent ">
+    <div className="max-h-[25px] max-w-[80px] rounded-[40px]  bg-green-accent-0.1 px-[13.5px] py-[4px] text-center text-green-accent mobile-sm:text-[12px] tablet:text-[14px] ">
       Income
     </div>
   );
@@ -8,7 +8,7 @@ export const IncimeIcon = () => {
 
 export const ExpenseIcon = () => {
   return (
-    <div className="bg-red-accent-0.1 max-h-[25px] rounded-[40px] px-[13.5px] py-[4px] text-center text-[14px] text-red-accent">
+    <div className="max-h-[25px] max-w-[80px] rounded-[40px] bg-red-accent-0.1 px-[13.5px] py-[4px] text-center text-red-accent mobile-sm:text-[12px] tablet:text-[14px]">
       Expense
     </div>
   );
@@ -16,7 +16,7 @@ export const ExpenseIcon = () => {
 
 export const ErrorIcon = () => {
   return (
-    <div className="max-h-[25px] rounded-[40px] bg-dark-0.1 px-[13.5px] py-[4px] text-center text-[14px] text-dark">
+    <div className="max-h-[25px] max-w-[80px] rounded-[40px] bg-dark-0.1 px-[13.5px] py-[4px] text-center text-dark mobile-sm:text-[12px] tablet:text-[14px]">
       Error
     </div>
   );

@@ -78,11 +78,15 @@ export const AllProducts = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div className="mt-[75px] flex items-center justify-between">
-        <Form variant="filter" submit={submit} isReset={false}>
-          <Input name="filter" placeholder="Product Name" />
-          <Button className="flex gap-[8px] leading-[129%]  text-white">
+    <div className="overflow-x-scroll pb-[20px]">
+      <div className="flex justify-between mobile-sm:mt-[40px] mobile-sm:flex-col mobile-sm:items-start mobile-sm:gap-[18px] tablet:mt-[50px] tablet:flex-row tablet:items-center tablet:gap-0">
+        <Form className="flex" variant="filter" submit={submit} isReset={false}>
+          <Input
+            name="filter"
+            placeholder="Product Name"
+            className="mobile-sm:w-[335px]"
+          />
+          <Button className="flex gap-[8px] leading-[129%] text-white mobile-sm:hidden  tablet:flex">
             <FilterIcon /> Filter
           </Button>
         </Form>
@@ -90,7 +94,7 @@ export const AllProducts = () => {
         <div className="flex items-center gap-[8px] text-[14px] leading-[129%]">
           <button
             onClick={() => dispatch(setIsOpenAddNewProductModal())}
-            className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-green-accent "
+            className="flex min-h-[42px] min-w-[42px] items-center justify-center rounded-full bg-green-accent  "
           >
             <PlusIcon />
           </button>{' '}
@@ -98,8 +102,8 @@ export const AllProducts = () => {
         </div>
       </div>
 
-      <div className="mt-[20px] w-full">
-        <div className="rounded-t-[8px] bg-green-background p-[20px] text-[18px] font-[600] leading-[133%]">
+      <div className="mt-[20px] mobile-sm:min-w-[515px] tablet:min-w-[960px] desktop:w-full">
+        <div className="w-full rounded-t-[8px] bg-green-background font-[600] leading-[133%] mobile-sm:p-[14px] mobile-sm:text-[16px] tablet:p-[20px] tablet:text-[18px]">
           All products
         </div>
 

@@ -30,7 +30,7 @@ export const Dashboard = () => {
   }, [dispatch]);
 
   return (
-    <div className="">
+    <div className="mb-[20px] mobile-sm:pr-[20px] tablet:pr-[32px] desktop:pr-[40px]">
       <Statistics
         countOfProduct={data?.products}
         countOfSuppliers={data?.suppliers}
@@ -38,9 +38,9 @@ export const Dashboard = () => {
         className="mb-[40px]"
       />
 
-      <div className="flex gap-[20px]">
-        <div className="w-1/2">
-          <div className="rounded-t-[8px] bg-green-background p-[20px] text-[18px] font-[600] leading-[133%]">
+      <div className="flex gap-[20px] mobile-sm:flex-col desktop:flex-row">
+        <div className="mobile-sm:w-full desktop:w-1/2">
+          <div className="rounded-t-[8px] bg-green-background text-[18px] font-[600] leading-[133%] mobile-sm:p-[14px] tablet:p-[20px]">
             Recent Customers
           </div>
 
@@ -61,7 +61,7 @@ export const Dashboard = () => {
                       <td
                         className={` border-l-0 bg-white pl-0 ${isLast ? 'border-b-0' : ''}`}
                       >
-                        <div className="flex items-center gap-[8px]">
+                        <div className="flex flex-wrap items-center gap-[8px]">
                           <img
                             src={item.image}
                             className="w-[36px]"
@@ -70,7 +70,9 @@ export const Dashboard = () => {
                           <p>{item.name}</p>
                         </div>
                       </td>
-                      <td className={`${isLast ? 'border-b-0' : ''}`}>
+                      <td
+                        className={`${isLast ? 'border-b-0' : ''} max-w-[100px] truncate`}
+                      >
                         {item.email}
                       </td>
                       <td
@@ -86,7 +88,7 @@ export const Dashboard = () => {
           </div>
         </div>
 
-        <div className="w-1/2">
+        <div className="mobile-sm:w-full desktop:w-1/2">
           <div className="rounded-t-[8px] bg-green-background p-[20px] text-[18px] font-[600] leading-[133%]">
             Income/Expenses
           </div>
@@ -112,7 +114,7 @@ export const Dashboard = () => {
                       </td>
 
                       <td
-                        className={`border-l-0 border-r-0 text-[16px] leading-[112%] ${isLast ? 'border-b-0' : ''}`}
+                        className={`text-wrap	 border-l-0  border-r-0 ${isLast ? 'border-b-0' : ''}`}
                       >
                         {item.name}
                       </td>
