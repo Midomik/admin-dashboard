@@ -16,6 +16,7 @@ export const Input = ({
   validate,
   errors,
   className,
+  ownWidth = false,
   ...rest
 }) => {
   if (!register) return null;
@@ -37,6 +38,7 @@ export const Input = ({
         : 'border border-[#30b94d] hover:border-[#30b94d]'
       : 'border border-transparent';
   };
+  console.log(ownWidth);
 
   return (
     <>
@@ -46,7 +48,7 @@ export const Input = ({
             className={` relative  flex  h-[46px]  w-full items-center gap-[10px] rounded-[60px] text-base text-[#1d1e2166]  hover:border ${getInputClasses(name)}`}
           >
             <input
-              className={` h-full w-full rounded-[60px] border border-[#1d1e211a] bg-white pl-[18px] text-[12px]  text-dark placeholder:text-[12px] placeholder:text-[#1d1e2166] focus:border-green-accent focus:outline-none ${className}`}
+              className={` h-full  rounded-[60px] border border-[#1d1e211a] bg-white pl-[18px] text-[12px]  text-dark placeholder:text-[12px] placeholder:text-[#1d1e2166] focus:border-green-accent focus:outline-none ${className}`}
               type={type}
               autoComplete={name}
               {...register(name)}
@@ -90,4 +92,5 @@ Input.propTypes = {
   type: PropTypes.string,
   eyeIcon: PropTypes.node,
   checkPassword: PropTypes.func,
+  ownWidth: PropTypes.bool,
 };

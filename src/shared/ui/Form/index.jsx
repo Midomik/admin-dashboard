@@ -1,12 +1,13 @@
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Input } from '../Input';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { cn } from '../../lib/cn';
 import { cva } from 'class-variance-authority';
+import { Notify } from 'notiflix';
 
 const formVariants = cva(' flex gap-[14px]', {
   variants: {
@@ -63,6 +64,16 @@ export const Form = ({
     }
     // return child
   });
+  console.log(errors);
+  const errorMessages = Object.values(errors).map((error) => error.message);
+
+  useEffect(() => {
+    if (errorMessages.length > 0) {
+      errorMessages.forEach((message) => {
+        Notify.failure(message);
+      });
+    }
+  }, [errorMessages]);
 
   const onSubmit = (data, event) => {
     event.preventDefault();
@@ -81,6 +92,7 @@ export const Form = ({
           {label}
         </p>
       )}
+
       {childrenWithProps}
     </form>
   );

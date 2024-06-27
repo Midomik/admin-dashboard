@@ -15,21 +15,40 @@ import {
   editProduct,
 } from '../../../features/redux/products/operations';
 import { selectModalData } from '../../../features/redux/products/selectors';
+import { DateInput } from '../Input/DateInput';
+import productOptions from '../../../features/data/addProduct';
+import addSupplier from '../../../features/data/addSupplier';
+import { addSuppliersSchema } from '../Form/shemas/supplierSchema';
+import {
+  addSuppliers,
+  editSuppliers,
+} from '../../../features/redux/suppliers/operations';
+import { closeSupplierModals } from '../../../features/redux/suppliers/reducer';
+import { selectModalDataSuppliers } from '../../../features/redux/suppliers/selectors';
+import { editSupplierSchema } from '../Form/shemas/editSupplierSchema';
 
 export const Modal = ({ className, variant }) => {
   const dispatch = useDispatch();
   const modalData = useSelector(selectModalData);
+  const modalDataSuppliers = useSelector(selectModalDataSuppliers);
 
   const addProductSubmit = (value) => {
     console.log(value);
     dispatch(addProduct(value));
-    console.log(123);
+  };
+
+  const addSuppliersSubmit = (value) => {
+    console.log(value);
+    dispatch(addSuppliers(value));
   };
 
   const editProductSubmit = (value) => {
-    console.log(123);
-
     dispatch(editProduct({ id: modalData._id, data: value }));
+  };
+  const editSupplierSubmit = (value) => {
+    console.log(value);
+
+    dispatch(editSuppliers({ id: modalDataSuppliers._id, data: value }));
   };
 
   const addProductVariant = (
@@ -43,7 +62,11 @@ export const Modal = ({ className, variant }) => {
         isReset={false}
       >
         <Input name="name" placeholder="Product Info" className="w-[224px]" />
-        <CustomSelect name="category" placeholder="Category" />
+        <CustomSelect
+          name="category"
+          placeholder="Category"
+          options={productOptions}
+        />
         <Input name="stock" placeholder="Stock" className="w-[224px]" />
         <Input name="suppliers" placeholder="Suppliers" className="w-[224px]" />
         <Input name="price" placeholder="Price" className="w-[224px]" />
@@ -84,6 +107,7 @@ export const Modal = ({ className, variant }) => {
         <CustomSelect
           name="category"
           placeholder="Category"
+          options={productOptions}
           defaultValue={{
             value: modalData?.category,
             label: modalData?.category,
@@ -125,8 +149,137 @@ export const Modal = ({ className, variant }) => {
     </>
   );
 
+  const addSupplierVariant = (
+    <>
+      <Form
+        className="gap-[8px]"
+        variant="wrap"
+        label="Add a new suppliers"
+        submit={addSuppliersSubmit}
+        validationSchema={addSuppliersSchema}
+        isReset={false}
+      >
+        <Input
+          name="name"
+          placeholder="Suppliers info"
+          ownWidth={true}
+          className="w-[224px]"
+        />
+        <Input
+          name="address"
+          placeholder="Address"
+          ownWidth={true}
+          className="w-[224px]"
+        />
+        <Input
+          name="suppliers"
+          placeholder="Company"
+          ownWidth={true}
+          className="w-[224px]"
+        />
+        <DateInput name="date" placeholder="Delivery date" />
+        <Input
+          name="amount"
+          placeholder="Amount"
+          ownWidth={true}
+          className="w-[224px]"
+        />
+        <CustomSelect
+          name="status"
+          placeholder="Status"
+          options={addSupplier}
+        />
+
+        <div className="mt-[40px] flex w-full gap-[8px]">
+          <Button type="submit" className="px-[52.5px]">
+            Add
+          </Button>
+          <Button
+            onClick={() => closeModal()}
+            type="button"
+            size="gray"
+            className="px-[43px]"
+          >
+            Cancel
+          </Button>
+        </div>
+      </Form>
+    </>
+  );
+
+  const editSupplierVariant = (
+    <>
+      <Form
+        className="gap-[8px]"
+        variant="wrap"
+        label="Edit supplier"
+        submit={editSupplierSubmit}
+        validationSchema={editSupplierSchema}
+        isReset={false}
+      >
+        <Input
+          name="name"
+          defaultValue={modalDataSuppliers?.name}
+          placeholder="Suppliers info"
+          ownWidth={true}
+          className="w-[224px]"
+        />
+        <Input
+          name="address"
+          defaultValue={modalDataSuppliers?.address}
+          placeholder="Address"
+          ownWidth={true}
+          className="w-[224px]"
+        />
+        <Input
+          name="suppliers"
+          defaultValue={modalDataSuppliers?.suppliers}
+          placeholder="Company"
+          ownWidth={true}
+          className="w-[224px]"
+        />
+        <DateInput
+          name="date"
+          placeholder="Delivery date"
+          defaultValue={modalDataSuppliers?.date}
+        />
+        <Input
+          name="amount"
+          defaultValue={modalDataSuppliers?.amount}
+          placeholder="Amount"
+          ownWidth={true}
+          className="w-[224px]"
+        />
+        <CustomSelect
+          name="status"
+          defaultValue={{
+            value: modalDataSuppliers?.status,
+            label: modalDataSuppliers?.status,
+          }}
+          placeholder="Status"
+          options={addSupplier}
+        />
+
+        <div className="mt-[40px] flex w-full gap-[8px]">
+          <Button type="submit" className="px-[52.5px]">
+            Save
+          </Button>
+          <Button
+            onClick={() => closeModal()}
+            type="button"
+            size="gray"
+            className="px-[43px]"
+          >
+            Cancel
+          </Button>
+        </div>
+      </Form>
+    </>
+  );
+
   const closeModal = () => {
     dispatch(closeModals());
+    dispatch(closeSupplierModals());
     document.body.classList.remove('add-overflov');
   };
 
@@ -166,6 +319,8 @@ export const Modal = ({ className, variant }) => {
 
         {variant === 'addProduct' && addProductVariant}
         {variant === 'editProduct' && editProductVariant}
+        {variant === 'addSupplier' && addSupplierVariant}
+        {variant === 'editSupplier' && editSupplierVariant}
       </div>
     </div>
   );

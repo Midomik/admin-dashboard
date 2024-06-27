@@ -16,6 +16,7 @@ import { dashboardReducer } from './dashboard/reducer';
 import { orderdReducer } from './orders/reducer';
 import { customerReducer } from './customers/reducer';
 import { productReducer } from './products/reducer';
+import { supplierReducer } from './suppliers/reducer';
 
 const authConfig = {
   key: 'auth',
@@ -30,6 +31,7 @@ export const store = configureStore({
     orders: orderdReducer,
     customers: customerReducer,
     products: productReducer,
+    suppliers: supplierReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

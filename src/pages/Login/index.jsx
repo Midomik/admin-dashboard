@@ -61,8 +61,13 @@ export const Login = () => {
 
         <div className="min-w-[323px]">
           <Form submit={submit} validationSchema={loginSchema}>
-            <Input name="email" placeholder="Email address" />
             <Input
+              className="w-full"
+              name="email"
+              placeholder="Email address"
+            />
+            <Input
+              className="w-full"
               name="password"
               placeholder="Password"
               type={isVisiblePassword ? 'text' : 'password'}

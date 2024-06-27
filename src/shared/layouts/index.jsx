@@ -14,6 +14,10 @@ import {
   selectIsOpenAddNewProductModal,
   selectIsOpenEditProductModal,
 } from '../../features/redux/products/selectors';
+import {
+  selectIsOpenAddNewSupplierModal,
+  selectIsOpenEditSupplierModal,
+} from '../../features/redux/suppliers/selectors';
 
 export const SharedLayout = ({ children }) => {
   const dispatch = useDispatch();
@@ -21,6 +25,8 @@ export const SharedLayout = ({ children }) => {
 
   const isOpenAddNewProductModal = useSelector(selectIsOpenAddNewProductModal);
   const isOpenEditProductModal = useSelector(selectIsOpenEditProductModal);
+  const isOpenAddNewSuppliers = useSelector(selectIsOpenAddNewSupplierModal);
+  const isOpenEditSupplierModal = useSelector(selectIsOpenEditSupplierModal);
 
   const page =
     location.pathname === '/'
@@ -94,6 +100,8 @@ export const SharedLayout = ({ children }) => {
       </div>
       {isOpenAddNewProductModal && <Modal variant="addProduct" />}
       {isOpenEditProductModal && <Modal variant="editProduct" />}
+      {isOpenAddNewSuppliers && <Modal variant="addSupplier" />}
+      {isOpenEditSupplierModal && <Modal variant="editSupplier" />}
     </div>
   );
 };
