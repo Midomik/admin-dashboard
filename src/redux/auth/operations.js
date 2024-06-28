@@ -17,13 +17,15 @@ export const loginThunk = createAsyncThunk(
 
       return res.data;
     } catch (error) {
+      console.log(error);
+
       error.response.status === 401
-        ? Notify.failure(`Error! You enter invalid email or password`, {
+        ? Notify.failure(`${error.response.data.message}`, {
             timeout: 3000,
           })
         : null;
 
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );

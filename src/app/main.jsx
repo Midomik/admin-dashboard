@@ -3,7 +3,7 @@ import './styles/index.css';
 import './styles/reset.css';
 import { Router } from './routes.jsx';
 import { Provider } from 'react-redux';
-import { persistor, store } from '../features/redux/store.js';
+import { persistor, store } from '../redux/store.js';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
 

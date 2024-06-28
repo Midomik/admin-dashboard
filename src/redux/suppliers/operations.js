@@ -6,6 +6,8 @@ export const getSuppliers = createAsyncThunk(
   'suppliers/getSuppliers',
   async (data, thunkAPI) => {
     try {
+      console.log(data);
+
       const res = await instance.get(`/suppliers`, { params: data });
       return { data: res.data, filter: data.name };
     } catch (error) {

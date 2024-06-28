@@ -5,6 +5,9 @@ export const addSuppliersSchema = yup.object().shape({
   address: yup.string().required('Address is required'),
   suppliers: yup.string().required('Suppliers is required'),
   date: yup.string().required('Delivery date is required'),
-  amount: yup.string().required('Ammount is required'),
+  amount: yup
+    .number()
+    .typeError('Must be a number')
+    .required('Ammount is required'),
   status: yup.string().required('Status is required'),
 });

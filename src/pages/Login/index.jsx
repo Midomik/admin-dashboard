@@ -8,29 +8,9 @@ import elements from '../../shared/assets/images/png/elements.png';
 import elements_2x from '../../shared/assets/images/png/elements@2x.png';
 import elements_webp from '../../shared/assets/images/webp/elements.webp';
 import elements_2x_webp from '../../shared/assets/images/webp/elements@2x.webp';
-import { Form } from '../../shared/ui/Form';
-import { Input } from '../../shared/ui/Input';
-import { EyeOffIcon } from '../../shared/assets/icons/EyeOffIcon';
-import { useState } from 'react';
-import { EyeOnIcon } from '../../shared/assets/icons/EyeOnIcon';
-import { Button } from '../../shared/ui/Button';
-import { loginSchema } from '../../shared/ui/Form/shemas/loginSchema';
-import { useDispatch } from 'react-redux';
-import { loginThunk } from '../../features/redux/auth/operations';
+import { FormLogin } from './FormLogin';
 
 export const Login = () => {
-  const dispatch = useDispatch();
-
-  const [isVisiblePassword, setIsvisiblePassword] = useState(false);
-
-  const checkPassword = (value) => {
-    setIsvisiblePassword(value);
-  };
-
-  const submit = (value) => {
-    dispatch(loginThunk(value));
-  };
-
   return (
     <div className="relative h-[100vh] overflow-x-hidden py-[28px] mobile-sm:px-[20px] tablet:px-[32px] desktop:px-[100px]">
       <div className="flex items-center gap-[14px] text-[20px] font-[600] tracking-[-0.03em] mobile-sm:mb-[148px] tablet:mb-[204px] desktop:mb-[226px]">
@@ -62,24 +42,7 @@ export const Login = () => {
           </p>
         </div>
 
-        <div className="min-w-[323px]">
-          <Form submit={submit} validationSchema={loginSchema}>
-            <Input
-              className="w-full"
-              name="email"
-              placeholder="Email address"
-            />
-            <Input
-              className="w-full"
-              name="password"
-              placeholder="Password"
-              type={isVisiblePassword ? 'text' : 'password'}
-              eyeIcon={isVisiblePassword ? <EyeOnIcon /> : <EyeOffIcon />}
-              checkPassword={checkPassword}
-            />
-            <Button className="bg-green-accent text-white">Log in</Button>
-          </Form>
-        </div>
+        <FormLogin />
       </div>
 
       <picture className=" talet:right-0 absolute z-[-10] mobile-sm:bottom-[-120px] mobile-sm:right-[-40px]  tablet:bottom-0">

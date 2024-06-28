@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeModals } from '../../../features/redux/products/reducer';
+import { closeModals } from '../../../redux/products/reducer';
 import { CloseIcon } from '../../assets/icons/CloseIcon';
 
 import { Form } from '../Form';
@@ -10,26 +10,18 @@ import { Button } from '../Button';
 
 import { CustomSelect } from '../Select/Select';
 import { addProductSchema } from '../Form/shemas/productSchema';
-import {
-  addProduct,
-  editProduct,
-  getProducts,
-} from '../../../features/redux/products/operations';
-import {
-  selectFilter,
-  selectModalData,
-  selectProductData,
-} from '../../../features/redux/products/selectors';
+import { addProduct, editProduct } from '../../../redux/products/operations';
+import { selectModalData } from '../../../redux/products/selectors';
 import { DateInput } from '../Input/DateInput';
-import productOptions from '../../../features/data/addProduct';
-import addSupplier from '../../../features/data/addSupplier';
+import productOptions from '../../../data/addProduct';
+import addSupplier from '../../../data/addSupplier';
 import { addSuppliersSchema } from '../Form/shemas/supplierSchema';
 import {
   addSuppliers,
   editSuppliers,
-} from '../../../features/redux/suppliers/operations';
-import { closeSupplierModals } from '../../../features/redux/suppliers/reducer';
-import { selectModalDataSuppliers } from '../../../features/redux/suppliers/selectors';
+} from '../../../redux/suppliers/operations';
+import { closeSupplierModals } from '../../../redux/suppliers/reducer';
+import { selectModalDataSuppliers } from '../../../redux/suppliers/selectors';
 import { editSupplierSchema } from '../Form/shemas/editSupplierSchema';
 import { cn } from '../../lib/cn';
 import { cva } from 'class-variance-authority';
@@ -39,17 +31,14 @@ import { OrdersIcon } from '../../assets/icons/OrdersIcon';
 import { ProductsIcon } from '../../assets/icons/ProductsIcon';
 import { SuppliersIcon } from '../../assets/icons/SuppliersIcon';
 import { CustomersIcon } from '../../assets/icons/CustomersIcon';
-import { logOutThunk } from '../../../features/redux/auth/operations';
+import { logOutThunk } from '../../../redux/auth/operations';
 import { LogOutIcon } from '../../assets/icons/LogOutIcon';
-import { closeHeaderModal } from '../../../features/redux/dashboard/reducer';
+import { closeHeaderModal } from '../../../redux/dashboard/reducer';
 
 export const Modal = ({ className, variant, modal = 'default' }) => {
   const dispatch = useDispatch();
   const modalData = useSelector(selectModalData);
   const modalDataSuppliers = useSelector(selectModalDataSuppliers);
-
-  const productData = useSelector(selectProductData);
-  const productQuery = useSelector(selectFilter);
 
   const modalVariants = cva(' ', {
     variants: {
@@ -77,7 +66,6 @@ export const Modal = ({ className, variant, modal = 'default' }) => {
     dispatch(editProduct({ id: modalData._id, data: value }));
   };
   const editSupplierSubmit = (value) => {
-
     dispatch(editSuppliers({ id: modalDataSuppliers._id, data: value }));
   };
 
@@ -208,26 +196,22 @@ export const Modal = ({ className, variant, modal = 'default' }) => {
         <Input
           name="name"
           placeholder="Suppliers info"
-          ownWidth={true}
           className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           name="address"
           placeholder="Address"
-          ownWidth={true}
           className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           name="suppliers"
           placeholder="Company"
-          ownWidth={true}
           className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <DateInput name="date" placeholder="Delivery date" />
         <Input
           name="amount"
           placeholder="Amount"
-          ownWidth={true}
           className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <CustomSelect
@@ -267,21 +251,18 @@ export const Modal = ({ className, variant, modal = 'default' }) => {
           name="name"
           defaultValue={modalDataSuppliers?.name}
           placeholder="Suppliers info"
-          ownWidth={true}
           className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           name="address"
           defaultValue={modalDataSuppliers?.address}
           placeholder="Address"
-          ownWidth={true}
           className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <Input
           name="suppliers"
           defaultValue={modalDataSuppliers?.suppliers}
           placeholder="Company"
-          ownWidth={true}
           className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <DateInput
@@ -293,7 +274,6 @@ export const Modal = ({ className, variant, modal = 'default' }) => {
           name="amount"
           defaultValue={modalDataSuppliers?.amount}
           placeholder="Amount"
-          ownWidth={true}
           className="mobile-sm:w-[295px] tablet:w-[224px]"
         />
         <CustomSelect

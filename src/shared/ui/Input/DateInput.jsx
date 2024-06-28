@@ -5,6 +5,7 @@ import { CalendarIcon } from '../../assets/icons/CalendarIcon';
 import { format } from 'date-fns';
 
 export const DateInput = ({ control, name, defaultValue = null, ...rest }) => {
+  const today = new Date();
   return (
     <Controller
       control={control}
@@ -18,6 +19,7 @@ export const DateInput = ({ control, name, defaultValue = null, ...rest }) => {
             placeholderText="Delivery date"
             className="focus:ring-blue-500 h-[44px] rounded-[60px] border border-dark-0.1 p-2 pl-[18px] placeholder:text-[12px] placeholder:text-dark-0.4 focus:border-transparent focus:outline-none focus:ring-2 mobile-sm:w-[295px] tablet:w-[224px]"
             dateFormat="MMMM d, yyyy"
+            minDate={today}
             {...rest}
           />
           <div className="pointer-events-none absolute inset-y-0 right-[6px] top-[0] flex items-center pr-3">

@@ -8,24 +8,21 @@ import { ProductsIcon } from '../assets/icons/ProductsIcon';
 import { OrdersIcon } from '../assets/icons/OrdersIcon';
 import { DashboardIcon } from '../assets/icons/DashboardIcon';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  logOutThunk,
-  refreshThunk,
-} from '../../features/redux/auth/operations';
+import { logOutThunk, refreshThunk } from '../../redux/auth/operations';
 import { Modal } from '../ui/Modal';
 import {
   selectIsOpenAddNewProductModal,
   selectIsOpenEditProductModal,
-} from '../../features/redux/products/selectors';
+} from '../../redux/products/selectors';
 import {
   selectIsOpenAddNewSupplierModal,
   selectIsOpenEditSupplierModal,
-} from '../../features/redux/suppliers/selectors';
+} from '../../redux/suppliers/selectors';
 import { BurgerMenu } from '../assets/icons/BurgerMenu';
-import { selectisOpenSideHeaderModal } from '../../features/redux/dashboard/selectors';
-import { setIsOpenSideHeaderModal } from '../../features/redux/dashboard/reducer';
+import { selectisOpenSideHeaderModal } from '../../redux/dashboard/selectors';
+import { setIsOpenSideHeaderModal } from '../../redux/dashboard/reducer';
 import { useEffect } from 'react';
-import { selectUserData } from '../../features/redux/auth/selectors';
+import { selectUserData } from '../../redux/auth/selectors';
 
 export const SharedLayout = ({ children }) => {
   const dispatch = useDispatch();

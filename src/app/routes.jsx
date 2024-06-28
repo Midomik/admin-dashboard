@@ -33,11 +33,10 @@ export const Router = () => {
           path="suppliers"
           element={<PrivateRoute component={<AllSuppliers />} />}
         />
-
-        <Route path="*" element={<NotFound />} />
       </Route>
 
       <Route path="login" element={<PublicRoute component={<Login />} />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

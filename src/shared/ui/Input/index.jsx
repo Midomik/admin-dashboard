@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-
 export const Input = ({
   name,
-  
+
   isRegister = true,
   type = 'text',
   eyeIcon,
@@ -15,7 +14,7 @@ export const Input = ({
   validate,
   errors,
   className,
-  
+
   ...rest
 }) => {
   if (!register) return null;
@@ -89,5 +88,4 @@ Input.propTypes = {
   type: PropTypes.string,
   eyeIcon: PropTypes.node,
   checkPassword: PropTypes.func,
-  ownWidth: PropTypes.bool,
 };

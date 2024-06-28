@@ -5,6 +5,9 @@ export const editSupplierSchema = yup.object().shape({
   address: yup.string().required('Address is required'),
   suppliers: yup.string().required('Suppliers is required'),
   date: yup.string(),
-  amount: yup.string().required('Ammount is required'),
+  amount: yup
+    .number()
+    .typeError('Must be a number')
+    .required('Ammount is required'),
   status: yup.string(),
 });
