@@ -94,7 +94,7 @@ export const AllProducts = () => {
         <div className="flex items-center gap-[8px] text-[14px] leading-[129%]">
           <button
             onClick={() => dispatch(setIsOpenAddNewProductModal())}
-            className="flex min-h-[42px] min-w-[42px] items-center justify-center rounded-full bg-green-accent  "
+            className=" flex min-h-[42px] min-w-[42px] items-center justify-center rounded-full bg-green-accent hover:bg-[#59b17a99]  "
           >
             <PlusIcon />
           </button>{' '}
@@ -158,14 +158,14 @@ export const AllProducts = () => {
                           onClick={() =>
                             dispatch(setIsOpenEditProductModal(item))
                           }
-                          className="rounded-full border border-[#59b17a80] p-[8px]"
+                          className=" rounded-full border border-[#59b17a80] p-[8px] hover:bg-[#59b17a99]"
                         >
                           <PenIcon />
                         </div>
 
                         <div
                           onClick={() => handleDeleteProduct(item._id)}
-                          className="rounded-full border border-[#e8505080] p-[8px]"
+                          className="rounded-full border border-[#e8505080] p-[8px] hover:bg-[#e8505099]"
                         >
                           <TrashIcon />
                         </div>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import logo from '../../shared/assets/images/png/logo.png';
 import { LogOutIcon } from '../assets/icons/LogOutIcon';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { CustomersIcon } from '../assets/icons/CustomersIcon';
 import { SuppliersIcon } from '../assets/icons/SuppliersIcon';
 import { ProductsIcon } from '../assets/icons/ProductsIcon';
@@ -59,11 +59,14 @@ export const SharedLayout = ({ children }) => {
         >
           <BurgerMenu />
         </div>
-        <img
-          src={logo}
-          alt="logotype"
-          className="m-[20px] h-[40px] w-[40px] "
-        />
+
+        <Link to="/">
+          <img
+            src={logo}
+            alt="logotype"
+            className="m-[20px] h-[40px] w-[40px] "
+          />
+        </Link>
 
         <div className="flex w-full justify-between py-[15px] mobile-sm:pl-0 desktop:px-[40px]">
           <div className="">
@@ -77,7 +80,7 @@ export const SharedLayout = ({ children }) => {
 
           <button
             onClick={() => dispatch(logOutThunk())}
-            className=" flex h-[44px] w-[44px] items-center justify-center rounded-full bg-green-accent mobile-sm:hidden desktop:flex"
+            className=" flex h-[44px] w-[44px] items-center justify-center rounded-full bg-green-accent hover:bg-[#59b17a99] mobile-sm:hidden desktop:flex"
           >
             <LogOutIcon />
           </button>
@@ -85,34 +88,34 @@ export const SharedLayout = ({ children }) => {
       </header>
 
       <div className="flex">
-        <aside className="flex h-[100vh] flex-col gap-[14px] border border-r-dark-0.1 border-t-transparent px-[18px] py-[40px] mobile-sm:hidden desktop:block">
+        <aside className="flex h-[100vh] flex-col gap-[14px] border border-r-dark-0.1 border-t-transparent px-[18px] py-[40px] mobile-sm:hidden desktop:flex">
           <NavLink
             to="/"
-            className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+            className=" flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
           >
             {({ isActive }) => <DashboardIcon isActive={isActive} />}
           </NavLink>
           <NavLink
             to="/orders"
-            className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+            className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
           >
             {({ isActive }) => <OrdersIcon isActive={isActive} />}
           </NavLink>
           <NavLink
             to="/products"
-            className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+            className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
           >
             {({ isActive }) => <ProductsIcon isActive={isActive} />}
           </NavLink>
           <NavLink
             to="/suppliers"
-            className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+            className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
           >
             {({ isActive }) => <SuppliersIcon isActive={isActive} />}
           </NavLink>
           <NavLink
             to="/customers"
-            className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+            className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
           >
             {({ isActive }) => <CustomersIcon isActive={isActive} />}
           </NavLink>

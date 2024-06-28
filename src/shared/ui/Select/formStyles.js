@@ -35,7 +35,9 @@ export const formStyles = {
     paddingRight: 8,
     paddingLeft: 10,
     border: '1px solid rgba(25, 26, 21, 0.1)',
-    '&:hover': { backgroundColor: 'rgba(25, 26, 21, 0.1)' },
+    '&:hover': {
+      borderColor: 'rgba(25, 26, 21, 0.1)', // Прибрати бордер при ховері
+    },
     height: '44px',
   }),
   dropdownIndicator: (base, state) => ({

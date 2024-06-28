@@ -80,7 +80,7 @@ export const AllSuppliers = () => {
 
         <button
           onClick={() => dispatch(setIsOpenAddNewSupplierModal())}
-          className=" flex h-[44px] items-center justify-center rounded-[60px] border border-[#59b17a80] bg-transparent px-[30px] py-[13px] leading-[129%] mobile-sm:text-[12px] tablet:text-[14px] "
+          className=" flex h-[44px] items-center justify-center rounded-[60px] border border-[#59b17a80] bg-transparent px-[30px] py-[13px] leading-[129%] hover:bg-[#59b17a99] mobile-sm:text-[12px] tablet:text-[14px] "
         >
           Add a new suppliers
         </button>
@@ -147,7 +147,7 @@ export const AllSuppliers = () => {
                           onClick={() =>
                             dispatch(setIsOpenEditSupplierModal(item))
                           }
-                          className="flex h-[34px] cursor-default items-center justify-center gap-[4px]  rounded-[30px] border border-[#59b17a80] px-[17px] py-[10px] text-green-accent mobile-sm:text-[12px] tablet:text-[14px]"
+                          className=" flex h-[34px] cursor-default items-center justify-center gap-[4px] rounded-[30px]  border border-[#59b17a80] px-[17px] py-[10px] text-green-accent hover:bg-[#59b17a99] mobile-sm:text-[12px] tablet:text-[14px]"
                         >
                           <PenOnly /> Edit
                         </div>

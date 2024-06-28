@@ -33,7 +33,7 @@ export const Login = () => {
   };
 
   return (
-    <div className=" relative h-[100vh] py-[28px] mobile-sm:px-[20px] tablet:px-[32px] desktop:px-[100px]">
+    <div className="relative h-[100vh] overflow-x-hidden py-[28px] mobile-sm:px-[20px] tablet:px-[32px] desktop:px-[100px]">
       <div className="flex items-center gap-[14px] text-[20px] font-[600] tracking-[-0.03em] mobile-sm:mb-[148px] tablet:mb-[204px] desktop:mb-[226px]">
         <img src={logo} alt="logotype" />
         <h2>E-Pharmacy</h2>

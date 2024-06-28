@@ -324,35 +324,35 @@ export const Modal = ({ className, variant, modal = 'default' }) => {
         <NavLink
           onClick={() => closeModal()}
           to="/"
-          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
         >
           {({ isActive }) => <DashboardIcon isActive={isActive} />}
         </NavLink>
         <NavLink
           onClick={() => closeModal()}
           to="/orders"
-          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
         >
           {({ isActive }) => <OrdersIcon isActive={isActive} />}
         </NavLink>
         <NavLink
           onClick={() => closeModal()}
           to="/products"
-          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
         >
           {({ isActive }) => <ProductsIcon isActive={isActive} />}
         </NavLink>
         <NavLink
           onClick={() => closeModal()}
           to="/suppliers"
-          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
         >
           {({ isActive }) => <SuppliersIcon isActive={isActive} />}
         </NavLink>
         <NavLink
           onClick={() => closeModal()}
           to="/customers"
-          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white hover:bg-green-accent-0.1"
         >
           {({ isActive }) => <CustomersIcon isActive={isActive} />}
         </NavLink>
@@ -360,7 +360,7 @@ export const Modal = ({ className, variant, modal = 'default' }) => {
 
       <button
         onClick={() => dispatch(logOutThunk())}
-        className=" absolute bottom-[20px] left-[25%] flex h-[44px] w-[44px] items-center justify-center rounded-full bg-green-accent"
+        className="absolute bottom-[20px] left-[25%] flex h-[44px] w-[44px] items-center justify-center rounded-full bg-green-accent hover:bg-[#59b17a99]"
       >
         <LogOutIcon />
       </button>
