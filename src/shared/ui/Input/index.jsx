@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-// import { ErrorIcon } from '../../assets/icons/ErrorIcon';
-// import { SuccIcon } from '../../assets/icons/SuccIcon';
+
 
 export const Input = ({
   name,
-  // title,
+  
   isRegister = true,
   type = 'text',
   eyeIcon,
@@ -16,7 +15,7 @@ export const Input = ({
   validate,
   errors,
   className,
-  ownWidth = false,
+  
   ...rest
 }) => {
   if (!register) return null;
@@ -38,7 +37,6 @@ export const Input = ({
         : 'border border-[#30b94d] hover:border-[#30b94d]'
       : 'border border-transparent';
   };
-  console.log(ownWidth);
 
   return (
     <>
@@ -79,7 +77,6 @@ export const Input = ({
 };
 
 Input.propTypes = {
-  // title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   variant: PropTypes.string,
   register: PropTypes.func,

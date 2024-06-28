@@ -32,7 +32,6 @@ export const SharedLayout = ({ children }) => {
   const location = useLocation();
 
   const userData = useSelector(selectUserData);
-  console.log(userData);
 
   useEffect(() => {
     dispatch(refreshThunk());

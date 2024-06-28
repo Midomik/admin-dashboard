@@ -29,7 +29,6 @@ export const Login = () => {
 
   const submit = (value) => {
     dispatch(loginThunk(value));
-    console.log(value);
   };
 
   return (

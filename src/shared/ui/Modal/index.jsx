@@ -13,8 +13,13 @@ import { addProductSchema } from '../Form/shemas/productSchema';
 import {
   addProduct,
   editProduct,
+  getProducts,
 } from '../../../features/redux/products/operations';
-import { selectModalData } from '../../../features/redux/products/selectors';
+import {
+  selectFilter,
+  selectModalData,
+  selectProductData,
+} from '../../../features/redux/products/selectors';
 import { DateInput } from '../Input/DateInput';
 import productOptions from '../../../features/data/addProduct';
 import addSupplier from '../../../features/data/addSupplier';
@@ -43,6 +48,9 @@ export const Modal = ({ className, variant, modal = 'default' }) => {
   const modalData = useSelector(selectModalData);
   const modalDataSuppliers = useSelector(selectModalDataSuppliers);
 
+  const productData = useSelector(selectProductData);
+  const productQuery = useSelector(selectFilter);
+
   const modalVariants = cva(' ', {
     variants: {
       modal: {
@@ -58,12 +66,10 @@ export const Modal = ({ className, variant, modal = 'default' }) => {
   });
 
   const addProductSubmit = (value) => {
-    console.log(value);
     dispatch(addProduct(value));
   };
 
   const addSuppliersSubmit = (value) => {
-    console.log(value);
     dispatch(addSuppliers(value));
   };
 
@@ -71,7 +77,6 @@ export const Modal = ({ className, variant, modal = 'default' }) => {
     dispatch(editProduct({ id: modalData._id, data: value }));
   };
   const editSupplierSubmit = (value) => {
-    console.log(value);
 
     dispatch(editSuppliers({ id: modalDataSuppliers._id, data: value }));
   };

@@ -1,9 +1,0 @@
-.react-datepicker__month-container {
-  max-height: 300px; /* Встановлюємо максимальну висоту календаря */
-  overflow-y: auto; /* Додаємо вертикальну прокрутку */
-  position: absolute; /* Абсолютне позиціонування */
-  z-index: 10; /* Задаємо високу пріоритетність */
-  background-color: white; /* Задаємо білий фон для календаря */
-  border: 1px solid #ddd; /* Додаємо рамку */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Додаємо тінь */
-}

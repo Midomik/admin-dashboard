@@ -42,12 +42,16 @@ const supplierSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(addSuppliers.fulfilled, (state) => {
+      .addCase(addSuppliers.fulfilled, (state, { payload }) => {
+        document.body.classList.remove('add-overflov');
         state.modalVariants.isOpeneAddNewSupplier = false;
+        state.data.suppliers.unshift(payload.data);
+        state.data.suppliers.pop();
         state.isLoading = false;
         state.error = null;
       })
       .addCase(editSuppliers.fulfilled, (state, { payload }) => {
+        document.body.classList.remove('add-overflov');
         const index = state.data.suppliers.findIndex(
           (supplier) => supplier._id === payload._id
         );

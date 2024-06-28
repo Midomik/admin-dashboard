@@ -51,14 +51,10 @@ export const AllProducts = () => {
   }
 
   const submit = (value) => {
-    console.log(value);
-
     dispatch(getProducts({ name: value.filter, page: 1, limit: 5 }));
   };
 
   const handleDeleteProduct = (id) => {
-    console.log(id);
-
     dispatch(deleteProduct(id));
     dispatch(
       getProducts({
@@ -129,7 +125,7 @@ export const AllProducts = () => {
               {data?.products.map((item, index, array) => {
                 const isLast = index === array.length - 1;
                 return (
-                  <tr key={item._id}>
+                  <tr key={nanoid()}>
                     <td
                       className={` border-l-0 bg-white pl-0 ${isLast ? 'border-b-0' : ''}`}
                     >

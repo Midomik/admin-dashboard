@@ -55,7 +55,6 @@ export const AllSuppliers = () => {
   }
 
   const submit = (value) => {
-    console.log(value);
 
     dispatch(getSuppliers({ name: value.filter, page: 1, limit: 5 }));
   };

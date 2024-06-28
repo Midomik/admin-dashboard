@@ -62,9 +62,7 @@ export const Form = ({
         errors,
       });
     }
-    // return child
   });
-  console.log(errors);
   const errorMessages = Object.values(errors).map((error) => error.message);
 
   useEffect(() => {

@@ -13,7 +13,6 @@ const dashboardSlice = createSlice({
   initialState,
   reducers: {
     setIsOpenSideHeaderModal: (state) => {
-      console.log(123);
 
       document.body.classList.add('add-overflov');
       state.isOpenSideHeaderModal = true;

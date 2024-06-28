@@ -22,11 +22,6 @@ export const formStyles = {
   }),
   container: (base) => ({
     ...base,
-    // width: '224px',
-
-    // [`@media (min-width: 768px)`]: {
-    //   width: '295px',
-    // },
   }),
   control: (base) => ({
     ...base,
@@ -36,7 +31,7 @@ export const formStyles = {
     paddingLeft: 10,
     border: '1px solid rgba(25, 26, 21, 0.1)',
     '&:hover': {
-      borderColor: 'rgba(25, 26, 21, 0.1)', // Прибрати бордер при ховері
+      borderColor: 'rgba(25, 26, 21, 0.1)',
     },
     height: '44px',
   }),
@@ -78,7 +73,7 @@ export const formStyles = {
       marginBottom: 14,
     },
   }),
-  singleValue: (base, state) => ({
+  singleValue: (base) => ({
     ...base,
     fontFamily: 'Inter',
     fontWeight: 500,
@@ -87,9 +82,9 @@ export const formStyles = {
   }),
   placeholder: (provided) => ({
     ...provided,
-    color: '#1d1e2166', // змініть колір на потрібний вам
+    color: '#1d1e2166',
   }),
   indicatorSeparator: () => ({
-    display: 'none', // Приховуємо лінію між індикатором та списком
+    display: 'none',
   }),
 };

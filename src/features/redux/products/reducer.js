@@ -47,8 +47,12 @@ const productSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(addProduct.fulfilled, (state) => {
+      .addCase(addProduct.fulfilled, (state, { payload }) => {
+        document.body.classList.remove('add-overflov');
         state.modalVariants.isOpeneAddNewProduct = false;
+
+        state.data.products.unshift(payload.data);
+        state.data.products.pop();
         state.isLoading = false;
         state.error = null;
       })
@@ -60,6 +64,7 @@ const productSlice = createSlice({
         state.error = null;
       })
       .addCase(editProduct.fulfilled, (state, { payload }) => {
+        document.body.classList.remove('add-overflov');
         const index = state.data.products.findIndex(
           (product) => product._id === payload._id
         );

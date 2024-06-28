@@ -57,7 +57,6 @@ export const AllOrders = () => {
   }
 
   const submit = (value) => {
-    console.log(value);
 
     dispatch(getOrder({ name: value.filter, page: 1, limit: 5 }));
   };
@@ -80,12 +79,7 @@ export const AllOrders = () => {
           </Button>
         </Form>
 
-        {/* <div className="flex items-center gap-[8px] text-[14px] leading-[129%]">
-          <button className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-green-accent ">
-            <PlusIcon />
-          </button>{' '}
-          Add a new product
-        </div> */}
+        
       </div>
 
       <div className="mt-[20px] mobile-sm:w-[675px] tablet:min-w-[960px] desktop:w-full">

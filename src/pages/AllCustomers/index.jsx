@@ -41,8 +41,6 @@ export const AllCustomers = () => {
   }
 
   const submit = (value) => {
-    console.log(value);
-
     dispatch(getCustomers({ name: value.filter, page: 1, limit: 5 }));
   };
 

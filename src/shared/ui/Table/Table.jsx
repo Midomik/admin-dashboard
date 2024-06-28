@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 export const Table = ({ title, tabelData }) => {
   const { header, body, fieldNames } = tabelData;
-  console.log(fieldNames);
-
   return (
     <div className="w-1/2">
       <div className="rounded-t-[8px] bg-green-background p-[20px]">

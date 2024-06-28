@@ -11,11 +11,11 @@ export const CustomSelect = ({ control, name, options, ...rest }) => {
       control={control}
       render={({ field: { onChange, value } }) => (
         <Select
-          value={options?.find((option) => option.value === value)} // Встановлюємо значення з контролера
+          value={options?.find((option) => option.value === value)}
           onChange={(selectedOption) => {
-            onChange(selectedOption.value); // Передаємо значення в react-hook-form
+            onChange(selectedOption.value);
           }}
-          getOptionValue={(option) => option.value} // Опція, яка повертає значення опції
+          getOptionValue={(option) => option.value}
           options={options}
           styles={formStyles}
           dateFormat="MMMM d, yyyy"
